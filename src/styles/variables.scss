@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+
+$color-navy: #243b5f;
+$color-background: #f8f8ed;
+$color-title: #b81b25;
+$color-black: #000000;
+$font-title: 'Gowun Batang', serif;
+$font-main: 'Nanum Gothic Coding', monospace;
+
+@mixin center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexSpacebetween {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
