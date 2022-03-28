@@ -1,11 +1,12 @@
 import React from 'react';
+import Header from '../../components/Header/Header';
+import './Main.scss';
 
 const Main = () => {
   return (
-    <div>
-      Main
-      <div className="aa">d푸룯츠</div>
-    </div>
+    <main className="container">
+      <Header />
+    </main>
   );
 };
 

@@ -1,0 +1,49 @@
+@import '../../styles/variables.scss';
+
+header {
+  position: fixed;
+  width: 100%;
+  background-color: $color-background;
+
+  .nav {
+    padding: 30px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    color: $color-navy;
+  }
+
+  .navTitle {
+    display: flex;
+    flex-direction: column;
+    margin-right: 95px;
+
+    h3 {
+      font-weight: bolder;
+      font-size: 19px;
+    }
+
+    p {
+      font-family: $font-main;
+      font-size: 12px;
+    }
+  }
+
+  .navMenu {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    font-family: $font-main;
+    font-size: 12px;
+
+    li:not(.navWall) {
+      margin: 0 8px;
+      cursor: pointer;
+    }
+    .navWall {
+      width: 1px;
+      height: 8px;
+      background-color: $color-navy;
+    }
+  }
+}
