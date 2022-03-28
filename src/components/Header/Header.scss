@@ -34,6 +34,8 @@ header {
     align-items: center;
     margin-right: 20px;
     font-family: $font-main;
+    font-weight: bold;
+    word-spacing: -3px;
     font-size: 12px;
 
     li:not(.navWall) {
