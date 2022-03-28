@@ -1,11 +1,9 @@
 @import '../../styles/variables.scss';
 
 header {
-  position: fixed;
-  width: 100%;
-  background-color: $color-background;
-
   .nav {
+    position: fixed;
+    right: 0;
     padding: 30px;
     display: flex;
     align-items: flex-start;
@@ -34,8 +32,6 @@ header {
     align-items: center;
     margin-right: 20px;
     font-family: $font-main;
-    font-weight: bold;
-    word-spacing: -3px;
     font-size: 12px;
 
     li:not(.navWall) {
