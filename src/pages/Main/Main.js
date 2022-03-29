@@ -1,12 +1,11 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
-import './Main.scss';
 
 const Main = () => {
   return (
-    <main className="container">
+    <div className="main">
       <Header />
-    </main>
+    </div>
   );
 };
 

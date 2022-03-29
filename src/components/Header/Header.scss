@@ -1,6 +1,6 @@
 @import '../../styles/variables.scss';
 
-header {
+.header {
   .nav {
     position: fixed;
     right: 0;
@@ -12,18 +12,17 @@ header {
   }
 
   .navTitle {
-    display: flex;
-    flex-direction: column;
     margin-right: 95px;
 
-    h3 {
+    .title {
       font-weight: bolder;
       font-size: 19px;
     }
 
-    p {
+    .subTitle {
+      padding-top: 3px;
       font-family: $font-main;
-      font-size: 12px;
+      font-size: 11px;
     }
   }
 
@@ -34,7 +33,7 @@ header {
     font-family: $font-main;
     font-size: 12px;
 
-    li:not(.navWall) {
+    .navList:not(.navWall) {
       margin: 0 8px;
       cursor: pointer;
     }

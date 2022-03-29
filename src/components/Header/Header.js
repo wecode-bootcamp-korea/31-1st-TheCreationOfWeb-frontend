@@ -3,21 +3,21 @@ import './Header.scss';
 
 const Header = () => {
   return (
-    <header>
+    <section className="header">
       <nav className="nav">
         <div className="navTitle">
-          <h3>FRUITZ COMPANY</h3>
-          <p>FRESH & NUTRITION</p>
+          <h3 className="title">FRUITZ COMPANY</h3>
+          <p className="subTitle">FRESH & NUTRITION</p>
         </div>
         <ul className="navMenu">
-          <li>LOGIN</li>
+          <li className="navList">LOGIN</li>
           <li className="navWall" />
-          <li>MY PAGE</li>
+          <li className="navList">MY PAGE</li>
           <li className="navWall" />
-          <li>CART</li>
+          <li className="navList">CART</li>
         </ul>
       </nav>
-    </header>
+    </section>
   );
 };
 
