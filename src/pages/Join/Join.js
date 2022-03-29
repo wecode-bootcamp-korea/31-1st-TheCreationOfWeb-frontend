@@ -1,7 +1,3 @@
-import React from 'react';
-
-const Join = () => {
-  return <div>Join</div>;
-};
+import React, { useState } from 'react';
 
 export default Join;
