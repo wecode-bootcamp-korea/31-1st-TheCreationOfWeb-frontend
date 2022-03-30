@@ -8,14 +8,19 @@ $color-black: #000000;
 $font-title: 'Gowun Batang', serif;
 $font-main: 'Noto Sans KR', sans-serif;
 
-@mixin center {
+@mixin flexCenter {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@mixin flexSpacebetween {
+@mixin flexbetween {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@mixin fontSet {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #243b5f;
 }
