@@ -1,21 +1,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap');
 
 $color-navy: #243b5f;
 $color-background: #f8f8ed;
 $color-title: #b81b25;
 $color-black: #000000;
 $font-title: 'Gowun Batang', serif;
-$font-main: 'Nanum Gothic Coding', monospace;
+$font-main: 'Noto Sans KR', sans-serif;
+$font-size-default: 12px;
+$font-size-small: 11px;
+$font-size-large: 13px;
 
-@mixin center {
+@mixin flexCenter {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-@mixin flexSpacebetween {
+@mixin flexbetween {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+@mixin fontSet {
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #243b5f;
 }
