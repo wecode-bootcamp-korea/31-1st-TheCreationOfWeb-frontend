@@ -3,17 +3,24 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 export const FruitzProvider = ({ children }) => {
-  const [productData, setProductData] = useState({
+  const token = localStorage.getItem('fruitz_user');
+  const [isLogin, setIsLogin] = useState(!!token);
+  const [dataValue, setDataValue] = useState({
     mock: [],
-    data: [],
+    product: [],
   });
 
+  const loginValue = { isLogin, setIsLogin };
+  const MOCK_URL = 'http://localhost:3000/data/initialData.json';
+  const API_URL = 'http://10.58.4.8:8000/products?category_id=1';
+
   const getData = async () => {
-    const data = await fetch(
-      'http://localhost:3000/data/initialData.json'
-    ).then(res => res.json());
-    setProductData({
-      mock: data.data,
+    const response = await fetch(`${MOCK_URL}`);
+    const mockData = await response.json();
+    // const productData = await fetch(`${API_URL}`).then(res => res.json());
+    console.log('ddd:', mockData);
+    setDataValue({
+      mock: mockData.data,
     });
   };
 
@@ -22,7 +29,9 @@ export const FruitzProvider = ({ children }) => {
   }, []);
 
   return (
-    <FruitzStateContext.Provider value={{ data: productData.mock }}>
+    <FruitzStateContext.Provider
+      value={{ data: dataValue.mock, loginInfo: loginValue }}
+    >
       {children}
     </FruitzStateContext.Provider>
   );
