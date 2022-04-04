@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
-const Login = ({ setIsLogin }) => {
+const Login = () => {
   const [loginInputs, setLoginInputs] = useState({
     id: '',
     pw: '',
@@ -34,7 +34,6 @@ const Login = ({ setIsLogin }) => {
         if (res.token) {
           localStorage.setItem('fruitz_user', res.token);
           navigate('/');
-          setIsLogin(true);
         } else {
           alert('아이디 또는 비밀번호가 일치하지 않습니다.');
         }
@@ -53,27 +52,27 @@ const Login = ({ setIsLogin }) => {
           <div className="inputCont">
             <input
               type="text"
-              className="idBox"
+              className="inputBox"
               name="ID"
               onChange={handleInputs}
             />
             <input
               type="password"
-              className="pwBox"
+              className="inputBox"
               name="PASSWORD"
               onChange={handleInputs}
             />
           </div>
           <div className="searchBox">
-            <div className="idSearch">아이디 찾기</div>
+            <div className="search">아이디 찾기</div>
             <div className="wall" />
-            <div className="pwSearch">비밀번호 찾기</div>
+            <div className="search">비밀번호 찾기</div>
           </div>
           <span className="buttonBox">
-            <button className="loginButton" onClick={goToMain}>
+            <button className="Button" onClick={goToMain}>
               로그인
             </button>
-            <button className="joinButton" onClick={goToJoin}>
+            <button className="Button" onClick={goToJoin}>
               회원가입
             </button>
           </span>

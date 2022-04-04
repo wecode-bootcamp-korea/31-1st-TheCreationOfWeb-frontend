@@ -17,8 +17,7 @@
     flex-direction: column;
     margin-top: 20px;
 
-    .idBox,
-    .pwBox {
+    .inputBox {
       height: 50px;
       border: none;
       border-bottom: 1px solid #e4e4de;
@@ -33,8 +32,7 @@
     justify-content: flex-end;
     font-weight: bold;
 
-    .idSearch,
-    .pwSearch {
+    .search {
       @include fontSet;
       font-size: $font-size-small;
       cursor: pointer;
@@ -50,13 +48,12 @@
     display: flex;
     justify-content: center;
     margin-top: 60px;
+
     button:hover {
       background-color: $color-navy;
       color: white;
     }
-
-    .loginButton,
-    .joinButton {
+    .Button {
       @include fontSet;
       padding: 10px;
       width: 80px;
