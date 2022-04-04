@@ -8,14 +8,12 @@ import './Detail.scss';
 const Detail = ({ productData }) => {
   const [count, setCount] = useState(1);
   const [input, setInput] = useState(1);
-  const [modal, setModal] = useState(0);
+  const [detailTabs, setDetailTabs] = useState(0);
   const { id } = useParams();
   const { name, price, images } = productData[id - 1];
-  const TAB_LIST = ['DETAILS', '|', 'HOW TO USE'];
 
-  const onTabs = idx => {
-    setModal(idx);
-  };
+  const tabList = ['DETAILS', '|', 'HOW TO USE'];
+
   return (
     <section className="detail">
       <div className="detailContent">
@@ -32,13 +30,13 @@ const Detail = ({ productData }) => {
           <h3 className="asidePrice">{price}</h3>
         </div>
         <ul className="asideTabs">
-          {TAB_LIST.map((tabsName, idx) => {
+          {tabList.map((tabsName, idx) => {
             return (
               <li
-                className={modal === idx ? 'tabsActive' : ''}
+                className={detailTabs === idx ? 'tabsActive' : ''}
                 key={idx}
                 onClick={() => {
-                  onTabs(idx);
+                  setDetailTabs(idx);
                 }}
               >
                 {tabsName}
@@ -46,7 +44,7 @@ const Detail = ({ productData }) => {
             );
           })}
         </ul>
-        {modal === 0 && <DetailInfo />}
+        {detailTabs === 0 && <DetailInfo />}
         <div className="purchase">
           <DetailSelect
             count={count}

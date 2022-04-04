@@ -19,7 +19,7 @@ import ScrollToTop from './ScrollToTop';
 
 function Router() {
   const token = localStorage.getItem('fruitz_user');
-  const [isLogin, setIsLogin] = useState(token ? true : false);
+  const [isLogin, setIsLogin] = useState(!!token);
   const productData = useFruitzState();
 
   return (
@@ -34,24 +34,9 @@ function Router() {
           path="/member/login"
           element={<Login setIsLogin={setIsLogin} />}
         />
-        <Route path="/product/fruit" element={<Fruit />} />
-        <Route path="/product/beverage" element={<Beverage />} />
-        <Route path="/product/goods" element={<Goods />} />
-        <Route path="/product/gifts" element={<Gifts />} />
+        <Route path="/product/:fruit" element={<Fruit />} />
         <Route
-          path="/product/fruit/detail/:id"
-          element={<Detail productData={productData.data} />}
-        />
-        <Route
-          path="/product/beverage/detail/:id"
-          element={<Detail productData={productData.data} />}
-        />
-        <Route
-          path="/product/goods/detail/:id"
-          element={<Detail productData={productData.data} />}
-        />
-        <Route
-          path="/product/gifts/detail/:id"
+          path="/product/:fruit/detail/:id"
           element={<Detail productData={productData.data} />}
         />
         <Route path="/cart" element={<Cart />} />

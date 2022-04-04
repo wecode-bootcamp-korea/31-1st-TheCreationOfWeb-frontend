@@ -2,13 +2,13 @@ import React from 'react';
 import { useFruitzState } from '../../../FruitContext';
 import ProductList from '../Components/ProductList/ProductList';
 
-const Fruit = () => {
-  const productData = useFruitzState();
+const Products = () => {
+  const product = useFruitzState();
   return (
-    <section className="Fruit">
-      <ProductList productData={productData} />
+    <section className="products">
+      <ProductList product={product} />
     </section>
   );
 };
 
-export default Fruit;
+export default Products;
