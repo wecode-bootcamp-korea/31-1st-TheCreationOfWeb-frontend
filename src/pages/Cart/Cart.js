@@ -6,10 +6,12 @@ import './Cart.scss';
 
 const Cart = () => {
   const [isCartValid, setIsCartValid] = useState(false);
-  const [cartItem, setCartItem] = useState([]);
+  const [carts, setCarts] = useState([]);
   const token = localStorage.getItem('fruitz_user') || '';
-  useEffect(async () => {
-    // const getCartData = await fetch('http://10.58.1.146:8000/carts/cart', {
+
+  useEffect(() => {
+    const API_CART = 'http://10.58.1.146:8000/carts/cart';
+    // const getCartData = await fetch(`${API_CART}`, {
     //   method: 'GET',
     //   headers: {
     //     Authorization: token,
@@ -17,25 +19,24 @@ const Cart = () => {
     // }).then(res => res.json());
     // console.log(getCartData.cart_list);
 
-    const getCartData = await fetch(
-      'http://localhost:3000/data/cartData.json'
-    ).then(res => res.json());
-    console.log(getCartData.cart_list);
+    const MOCK_CART = 'data/cartData.json';
 
-    setCartItem(getCartData);
-    // console.log(getCartData);
-
-    getCartData.cart_list.length ? setIsCartValid(true) : setIsCartValid(false);
+    const getCartData = async () => {
+      const response = await fetch(`${MOCK_CART}`);
+      const cartData = await response.json();
+      setCarts(cartData);
+    };
+    getCartData();
+    setIsCartValid(true);
   }, []);
-  console.log('cart.js:', cartItem.cart_list);
 
   return (
     <div className="Cart">
       {isCartValid ? (
         <ValidCart
-          cartItem={cartItem.cart_list}
-          setCartItem={setCartItem}
-          totalPrice={cartItem.total_price}
+          carts={carts.cart_list}
+          setCarts={setCarts}
+          totalPrice={carts.total_price}
           setIsCartValid={setIsCartValid}
         />
       ) : (

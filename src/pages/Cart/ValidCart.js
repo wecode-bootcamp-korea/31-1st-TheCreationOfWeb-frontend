@@ -5,14 +5,8 @@ import CartItem from './CartItem';
 import CartSummary from './CartSummary';
 import './ValidCart.scss';
 
-const ValidCart = ({ cartItem, setCartItem, totalPrice, setIsCartValid }) => {
-  const [checkedList, setCheckedList] = useState(cartItem);
-  const [quantity, setQuantity] = useState('');
-  const navigate = useNavigate();
-  const productData = useFruitzState();
-  const TITLE_LIST = ['ITEM', 'NAME', 'PRICE', 'QUANTITY', 'REMOVE'];
+const ValidCart = ({ carts, setCarts, totalPrice, setIsCartValid }) => {
   const token = localStorage.getItem('fruitz_user') || '';
-  const { id } = useParams();
 
   const removeCartAll = () => {
     if (window.confirm('장바구니를 비우시겠습니까?')) {
@@ -25,12 +19,12 @@ const ValidCart = ({ cartItem, setCartItem, totalPrice, setIsCartValid }) => {
           product_id: 0,
         }),
       }).then(res => res.json());
-      setCartItem([]);
+      setCarts([]);
       setIsCartValid(false);
       window.scrollTo(0, 0);
     }
   };
-  console.log(checkedList);
+
   return (
     <section className="validCart">
       <div className="cartContainer">
@@ -45,14 +39,14 @@ const ValidCart = ({ cartItem, setCartItem, totalPrice, setIsCartValid }) => {
           </ul>
         </div>
         <div className="cartContent">
-          {cartItem?.map((cartData, idx) => {
+          {carts?.map((cart, idx) => {
             return (
               <CartItem
-                key={id}
-                {...cartData}
-                cartItem={cartItem}
-                cartData={cartData}
-                setCartItem={setCartItem}
+                key={cart.id}
+                {...cart}
+                carts={carts}
+                cart={cart}
+                setCarts={setCarts}
                 idx={idx}
               />
             );
@@ -74,3 +68,5 @@ const ValidCart = ({ cartItem, setCartItem, totalPrice, setIsCartValid }) => {
 };
 
 export default ValidCart;
+
+const TITLE_LIST = ['ITEM', 'NAME', 'PRICE', 'QUANTITY', 'REMOVE'];

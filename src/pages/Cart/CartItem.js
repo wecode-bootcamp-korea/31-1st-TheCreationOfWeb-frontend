@@ -7,19 +7,20 @@ const CartItem = ({
   item,
   name,
   price,
-  cartItem,
-  cartData,
-  setCartItem,
+  carts,
+  cart,
+  setCarts,
+  idx,
 }) => {
   const [quanInput, setQuanInput] = useState(quantity);
   const [count, setCount] = useState(quantity);
   console.log('cart 카운트:', count);
-  const countUp = e => {
+  const countUp = () => {
     setCount(prevCount => prevCount + 1);
     setQuanInput(count + 1);
   };
 
-  const countDown = e => {
+  const countDown = () => {
     if (count < 2) {
       alert('최소 주문수량은 1개입니다.');
       return;
@@ -34,11 +35,10 @@ const CartItem = ({
   };
 
   const deleteItem = e => {
-    const copyCartItem = [...cartItem];
-    const filteredCartItem = copyCartItem.filter(
-      item => item.id !== cartData.id
-    );
-    setCartItem(filteredCartItem);
+    const copyCartItem = [...carts];
+    // TODO : 카트 아이템 삭제 구현
+    const filteredCartItem = copyCartItem.filter(item => item.id !== idx);
+    setCarts(filteredCartItem);
   };
   return (
     <ul className="cartItem">
