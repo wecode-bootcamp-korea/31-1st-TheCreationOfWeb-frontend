@@ -1,8 +1,12 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useFruitzState } from '../../FruitContext';
 import './Header.scss';
-const Header = ({ isLogin, setIsLogin }) => {
+
+const Header = () => {
   const navigate = useNavigate();
+  const loginState = useFruitzState();
+  const { isLogin, setIsLogin } = loginState.loginInfo;
 
   const goToPage = (event, idx) => {
     if (idx === 6) {
@@ -25,7 +29,7 @@ const Header = ({ isLogin, setIsLogin }) => {
     });
   };
 
-  const navList = [
+  const NAV_LIST = [
     isLogin ? 'LOGOUT' : 'LOGIN',
     '',
     'MY PAGE',
@@ -43,7 +47,7 @@ const Header = ({ isLogin, setIsLogin }) => {
           <p className="subTitle">FRESH & NUTRITION</p>
         </div>
         <ul className="navMenu">
-          {navList.map((listName, idx) => {
+          {NAV_LIST.map((listName, idx) => {
             return (
               <li
                 key={idx}
