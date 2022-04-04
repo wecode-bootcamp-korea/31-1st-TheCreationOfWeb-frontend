@@ -1,0 +1,21 @@
+@import '../../../../styles/variables.scss';
+
+.productItem {
+  margin: 20px;
+  text-align: center;
+  cursor: pointer;
+
+  .productImg {
+    width: 20vw;
+  }
+
+  .productContent {
+    @include fontSet;
+    font-size: 12px;
+    font-weight: 500;
+
+    .price {
+      margin-top: 10px;
+    }
+  }
+}
