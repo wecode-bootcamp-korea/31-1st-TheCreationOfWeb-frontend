@@ -18,7 +18,6 @@ const Login = () => {
       [name]: value,
     });
   };
-  console.log(loginInputs);
 
   const goToMain = e => {
     e.preventDefault();
