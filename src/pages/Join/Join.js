@@ -4,72 +4,56 @@ import { useNavigate } from 'react-router-dom';
 import './Join.scss';
 
 const Join = () => {
-  const navigate = useNavigate();
-  const [userId, setUserId] = useState('');
-  const [userPassword, setUserPassword] = useState('');
-  const [userName, setUserName] = useState('');
-  const [userAddress, setUserAddress] = useState('');
-  const [userPhoneNumber, setUserPhoneNumber] = useState('');
-  const [userEmail, setUserEmail] = useState('');
-  const [userSavedMoney, setUserSavedMoney] = useState(0);
+  const [joinInput, setJoinInput] = useState({
+    id: '',
+    pw: '',
+    address: '',
+    phone_number: '',
+    amount: 0,
+  });
 
   const goToMain = () => {
-    fetch('http://10.58.7.124:8000/users/signup', {
+    fetch('http://10.58.4.32:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
-        user: userId,
-        password: userPassword,
-        name: userName,
-        address: userAddress,
-        phone_number: userPhoneNumber,
-        email: userEmail,
-        money: userSavedMoney,
+        user: joinInput.id,
+        password: joinInput.pw,
+        address: joinInput.address,
+        phone_number: joinInput.phone_number,
+        amount: joinInput.amount,
       }),
     })
-      .then(res => {
-        if (res.ok) {
-          console.log(res);
+      .then(response => response.json())
+      .then(result => {
+        if (result.message === 'SUCCESS') {
+          alert('회원가입 성공하였습니다.');
           navigate('/');
-        } else {
-          alert('제대로 확인하세요');
+        } else if (result.message === 'ID_ALREADY_EXISTS') {
+          alert('이미 존재하는 ID입니다.');
+        } else if (result.message === 'INVALID_PASSWORD') {
+          alert(' 비밀번호 형식이 맞지 않습니다.');
+        } else if (result.message === 'PHONE_NUMBER_ALREADY_EXISTS') {
+          alert(' 이미 존재하는 전화번호 입니다.');
+        } else if (result.message === 'KEY_ERROR') {
+          alert('공란에 제대로 기입해주세요.');
         }
-        return res.json();
-      })
-      .then(res => {
-        console.log(res);
       });
   };
 
+  const handleInputs = e => {
+    const { name, value } = e.target;
+
+    setJoinInput({
+      ...joinInput,
+      [name]: value,
+    });
+  };
+
+  const navigate = useNavigate();
   const doCancel = () => {
     navigate('/member/login');
   };
-  const handleIdInput = e => {
-    setUserId(e.target.value);
-  };
 
-  const handlePwInput = e => {
-    setUserPassword(e.target.value);
-  };
-
-  const handleNameInput = e => {
-    setUserName(e.target.value);
-  };
-
-  const handleAddressInput = e => {
-    setUserAddress(e.target.value);
-  };
-
-  const handleTelInput = e => {
-    setUserPhoneNumber(e.target.value);
-  };
-
-  const handleEmailInput = e => {
-    setUserEmail(e.target.value);
-  };
-
-  const handleSavedMoneyInput = e => {
-    setUserSavedMoney(e.target.value);
-  };
   return (
     <main className="Join">
       <form>
@@ -80,8 +64,9 @@ const Join = () => {
               <li className="idCheckBox">
                 <input
                   type="text"
-                  onChange={handleIdInput}
+                  onChange={handleInputs}
                   className="inputBox"
+                  name="id"
                 />
                 <button className="checkButton">CHECK</button>
               </li>
@@ -94,35 +79,23 @@ const Join = () => {
               <li>
                 <input
                   type="password"
-                  onChange={handlePwInput}
+                  onChange={handleInputs}
                   className="inputBox"
+                  name="pw"
                 />
                 <span>(영문 소문자/숫자/특수문자)</span>
               </li>
             </ul>
           </div>
-
-          <div className="nameInputBox">
-            <ul className="inputCategory">
-              <li className="categoryText">이름</li>
-              <li>
-                <input
-                  type="text"
-                  onChange={handleNameInput}
-                  className="inputBox"
-                />
-              </li>
-            </ul>
-          </div>
-
           <div className="addressInputBox">
             <ul className="inputCategory">
               <li className="categoryText">주소</li>
               <li className="address">
                 <input
                   type="text"
-                  className="inputBox inputAddress"
-                  onChange={handleAddressInput}
+                  className="inputBox"
+                  onChange={handleInputs}
+                  name="address"
                 />
                 <button className="addressButton">우편번호</button> <br />
               </li>
@@ -135,34 +108,23 @@ const Join = () => {
               <li>
                 <input
                   type="text"
-                  onChange={handleTelInput}
+                  onChange={handleInputs}
                   className="inputBox"
+                  name="phone_number"
                 />
               </li>
             </ul>
           </div>
 
-          <div className="emailInputBox">
+          <div>
             <ul className="inputCategory">
-              <li className="categoryText">이메일</li>
+              <li className="categoryText">프룯츠 페이</li>
               <li>
                 <input
                   type="text"
-                  onChange={handleEmailInput}
+                  onChange={handleInputs}
                   className="inputBox"
-                />
-              </li>
-            </ul>
-          </div>
-
-          <div className="savedMoney">
-            <ul className="inputCategory">
-              <li className="categoryText">적립금</li>
-              <li>
-                <input
-                  type="text"
-                  onChange={handleSavedMoneyInput}
-                  className="inputBox"
+                  name="amount"
                 />
               </li>
             </ul>
