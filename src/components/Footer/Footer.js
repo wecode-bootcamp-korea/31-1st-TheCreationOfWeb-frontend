@@ -9,22 +9,21 @@ const Footer = () => {
       <div className="footer">
         <ul className="address">
           <li>
-            <div className="lb-wrap">
-              {/* <img className="lb-image" src="/images/round.png" /> */}
-              <div className="lb-text">1st</div>
+            <div className="addressBox">
+              <div className="textBox">1st</div>
             </div>
             <p>서울시 강남구 테헤란로 427</p>
             <p>We Work tower 427</p>
             <p>Ganamgu, Seoul, Korea</p>
           </li>
           <li>
-            <div className="lb-text">2nd</div>
+            <div className="textBox">2nd</div>
             <p>서울특별시 강남구 대치동 922-17</p>
             <p>1 Floor BHC</p>
             <p>Ganamgu, Seoul, Korea</p>
           </li>
           <li>
-            <div className="lb-text">3rd</div>
+            <div className="textBoxt">3rd</div>
             <p>서울특별시 강남구 청담동 89-8</p>
             <p>1 Floor Nari Chundam</p>
             <p>Ganamgu, Seoul, Korea</p>
