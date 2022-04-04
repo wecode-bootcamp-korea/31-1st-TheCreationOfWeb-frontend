@@ -1,19 +1,18 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import { useFruitzState } from '../../../../FruitContext';
 import DetailInfo from './DetailInfo';
 import DetailSelect from './DetailSelect';
 import DetailBtn from './DetailBtn';
 import './Detail.scss';
 
-const Detail = ({ productData }) => {
+const Detail = () => {
   const [count, setCount] = useState(1);
   const [input, setInput] = useState(1);
   const [detailTabs, setDetailTabs] = useState(0);
+  const productData = useFruitzState();
   const { id } = useParams();
-  const { name, price, images } = productData[id - 1];
-
-  const tabList = ['DETAILS', '|', 'HOW TO USE'];
-
+  const { name, price, images } = productData.data[id - 1];
   return (
     <section className="detail">
       <div className="detailContent">
@@ -30,7 +29,7 @@ const Detail = ({ productData }) => {
           <h3 className="asidePrice">{price}</h3>
         </div>
         <ul className="asideTabs">
-          {tabList.map((tabsName, idx) => {
+          {TAB_LIST.map((tabsName, idx) => {
             return (
               <li
                 className={detailTabs === idx ? 'tabsActive' : ''}
@@ -60,3 +59,5 @@ const Detail = ({ productData }) => {
 };
 
 export default Detail;
+
+const TAB_LIST = ['DETAILS', '|', 'HOW TO USE'];
