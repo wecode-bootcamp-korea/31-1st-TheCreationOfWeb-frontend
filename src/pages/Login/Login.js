@@ -3,22 +3,34 @@ import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 const Login = ({ setIsLogin }) => {
-  const [userId, setUserId] = useState('');
-  const [userPassword, setUserPassword] = useState('');
+  const [loginInputs, setLoginInputs] = useState({
+    id: '',
+    pw: '',
+  });
+
   const navigate = useNavigate();
+
+  const handleInputs = e => {
+    const { name, value } = e.target;
+
+    setLoginInputs({
+      ...loginInputs,
+      [name]: value,
+    });
+  };
+  console.log(loginInputs);
 
   const goToMain = e => {
     e.preventDefault();
     fetch('http://10.58.1.146:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
-        user: userId,
-        password: userPassword,
+        user: loginInputs.id,
+        password: loginInputs.pw,
       }),
     })
       .then(res => res.status === 200 && res.json())
       .then(res => {
-        console.log(res);
         if (res.token) {
           localStorage.setItem('fruitz_user', res.token);
           navigate('/');
@@ -33,13 +45,6 @@ const Login = ({ setIsLogin }) => {
     navigate('/member/join');
   };
 
-  const handleIdInput = e => {
-    setUserId(e.target.value);
-  };
-
-  const handlePwInput = e => {
-    setUserPassword(e.target.value);
-  };
   return (
     <div className="Login">
       <div className="loginCont">
@@ -49,14 +54,14 @@ const Login = ({ setIsLogin }) => {
             <input
               type="text"
               className="idBox"
-              placeholder="ID"
-              onChange={handleIdInput}
+              name="ID"
+              onChange={handleInputs}
             />
             <input
               type="password"
               className="pwBox"
-              placeholder="PASSWORD"
-              onChange={handlePwInput}
+              name="PASSWORD"
+              onChange={handleInputs}
             />
           </div>
           <div className="searchBox">
