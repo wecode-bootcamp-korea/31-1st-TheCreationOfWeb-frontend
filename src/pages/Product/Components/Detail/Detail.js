@@ -13,7 +13,7 @@ const Detail = ({ productData }) => {
   console.log('프로덕트:', productData);
   console.log('파람스 아이디:', id - 1);
 
-  const { name, price, img_url } = productData[id - 1];
+  const { name, price, images } = productData[id - 1];
 
   const tabList = ['DETAILS', '|', 'HOW TO USE'];
 
@@ -23,7 +23,7 @@ const Detail = ({ productData }) => {
   return (
     <section className="detail">
       <div className="detailContent">
-        <img className="img" alt="productImg" src={img_url} />
+        <img className="img" alt="productImg" src={images[1]} />
         <p className="content">
           간편함과 퀄리티를 동시에!
           <br /> 프릳츠에서 만드는 간편 커피 시리즈

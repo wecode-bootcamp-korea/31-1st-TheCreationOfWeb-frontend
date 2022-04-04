@@ -5,6 +5,7 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 export const FruitzProvider = ({ children }) => {
   const [productData, setProductData] = useState({
     mock: [],
+    data: [],
   });
 
   const getData = async () => {
