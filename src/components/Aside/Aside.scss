@@ -1,0 +1,29 @@
+@import '../../styles/variables.scss';
+@font-face {
+  font-family: 'SEBANG_Gothic_Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff')
+    format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.aside {
+  position: fixed;
+  left: 50px;
+  top: 50px;
+
+  .asideTitle {
+    cursor: pointer;
+
+    .titleLogo {
+      width: 105px;
+    }
+
+    .titleName {
+      font-size: 23px;
+      font-family: 'SEBANG_Gothic_Bold';
+      letter-spacing: 5px;
+      color: $color-title;
+    }
+  }
+}
