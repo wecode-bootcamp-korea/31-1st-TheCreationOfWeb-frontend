@@ -1,0 +1,75 @@
+@import '../../../../styles/variables.scss';
+
+.cartModal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+
+  .modalContainer {
+    .modalHeader {
+      @include flexbetween;
+      background-color: $color-navy;
+      height: 35px;
+      padding: 0 20px;
+
+      .modalTitle {
+        font-family: $font-main;
+        color: white;
+      }
+
+      .closeIcon {
+        color: #dbdbdb;
+        font-size: 20px;
+        cursor: pointer;
+      }
+    }
+
+    .modalContent {
+      padding: 70px 0;
+      text-align: center;
+      background-color: white;
+
+      .circle {
+        padding: 15px;
+        margin: auto;
+        margin-bottom: 20px;
+        width: 80px;
+        height: 80px;
+        border: 4px solid #dbdbdb;
+        border-radius: 50%;
+        .modalIcon {
+          color: tomato;
+          font-size: 40px;
+        }
+      }
+
+      .contentTitle {
+        font-family: $font-main;
+        font-size: 13px;
+        font-weight: 500;
+      }
+    }
+
+    .modalButtons {
+      @include flexCenter;
+      background-color: whitesmoke;
+      padding: 10px 0;
+      border: 1px solid #dbdbdb;
+      .modalBtn {
+        padding: 5px 10px;
+        margin-right: 5px;
+        border-radius: 3px;
+        background-color: white;
+        border: 1px solid #dbdbdb;
+        font-family: $font-main;
+        cursor: pointer;
+        &:nth-child(1) {
+          background-color: $color-navy;
+          color: white;
+        }
+      }
+    }
+  }
+}
