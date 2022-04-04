@@ -10,12 +10,8 @@ const Detail = ({ productData }) => {
   const [input, setInput] = useState(1);
   const [modal, setModal] = useState(0);
   const { id } = useParams();
-  console.log('프로덕트:', productData);
-  console.log('파람스 아이디:', id - 1);
-
   const { name, price, images } = productData[id - 1];
-
-  const tabList = ['DETAILS', '|', 'HOW TO USE'];
+  const TAB_LIST = ['DETAILS', '|', 'HOW TO USE'];
 
   const onTabs = idx => {
     setModal(idx);
@@ -36,7 +32,7 @@ const Detail = ({ productData }) => {
           <h3 className="asidePrice">{price}</h3>
         </div>
         <ul className="asideTabs">
-          {tabList.map((tabsName, idx) => {
+          {TAB_LIST.map((tabsName, idx) => {
             return (
               <li
                 className={modal === idx ? 'tabsActive' : ''}

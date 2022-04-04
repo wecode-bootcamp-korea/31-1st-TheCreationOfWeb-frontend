@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './DetailSelect.scss';
 
 const DetailSelect = ({ count, setCount, input, setInput }) => {
@@ -31,10 +31,10 @@ const DetailSelect = ({ count, setCount, input, setInput }) => {
         onChange={inputHandler}
       />
       <button className="selectBtn" onClick={onCountUp}>
-        <img src="https://fritz.co.kr/img/btn_quantity_up.gif" />
+        <img alt="upArrowImg" src="https://fritz.co.kr/img/btn_quantity_up.gif" />
       </button>
       <button className="selectBtn" onClick={onCountDown}>
-        <img src="https://fritz.co.kr/img/btn_quantity_down.gif" />
+        <img alt="downArrowImg"src="https://fritz.co.kr/img/btn_quantity_down.gif" />
       </button>
     </div>
   );

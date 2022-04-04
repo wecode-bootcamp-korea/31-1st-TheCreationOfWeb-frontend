@@ -6,7 +6,6 @@ const ProductList = ({ productData }) => {
   return (
     <ul className="productList">
       {productData.data.map(productList => {
-        console.log(productList);
         return <ProductItem key={productList.id} {...productList} />;
       })}
     </ul>

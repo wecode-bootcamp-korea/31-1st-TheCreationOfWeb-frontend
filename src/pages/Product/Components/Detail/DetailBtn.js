@@ -20,7 +20,7 @@ const DetailBtn = ({ count, price, id }) => {
     fetch('', {
       method: 'POST',
       body,
-    }).then(res => console.log(res));
+    })
     setIsOpenCartModal(true);
   };
 
