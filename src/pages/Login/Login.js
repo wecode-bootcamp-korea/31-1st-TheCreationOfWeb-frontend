@@ -69,10 +69,10 @@ const Login = () => {
             <div className="search">비밀번호 찾기</div>
           </div>
           <span className="buttonBox">
-            <button className="Button" onClick={goToMain}>
+            <button className="button" onClick={goToMain}>
               로그인
             </button>
-            <button className="Button" onClick={goToJoin}>
+            <button className="button" onClick={goToJoin}>
               회원가입
             </button>
           </span>
