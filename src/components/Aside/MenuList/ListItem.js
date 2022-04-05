@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import './ListItem.scss';
 
 const ListItem = ({
@@ -19,10 +19,12 @@ const ListItem = ({
     setActiveIndex(idx);
     setSubActiveIdx(null);
     !list && navigate(`/${title.replace(' ', '').toLowerCase()}`);
+    // !list && navigate(`products?category_id=1&product_id=1`);
   };
 
   const handleLink = (e, idx) => {
     setSubActiveIdx(idx);
+
     navigate({
       pathname: `/product/${e.target.innerText.replace(' ', '').toLowerCase()}`,
     });
@@ -35,21 +37,23 @@ const ListItem = ({
       </div>
       <div className={idx === activeIndex ? '' : 'closed'}>
         {isOpenSubMenu &&
-          list?.map((subList, index) => {
+          list?.map((sub, idx) => {
             return (
               <div
-                key={index}
-                onClick={subList => handleLink(subList, index)}
+                key={sub.id}
+                onClick={e => {
+                  handleLink(e, idx);
+                }}
                 className="listSub"
               >
                 <div
                   className={
-                    subActiveIdx === index
+                    subActiveIdx === idx
                       ? ['listDot', 'listActive'].join(' ')
                       : 'listDot'
                   }
                 />
-                {subList}
+                {sub.name}
               </div>
             );
           })}
