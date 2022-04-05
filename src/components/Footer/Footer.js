@@ -5,8 +5,8 @@ import './Footer.scss';
 
 const Footer = () => {
   return (
-    <div className="widthFooter">
-      <div className="footer">
+    <div className="footer">
+      <div className="widthFooter">
         <ul className="address">
           <li>
             <div className="addressBox">
