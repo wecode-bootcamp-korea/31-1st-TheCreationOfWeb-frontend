@@ -2,11 +2,11 @@ import React from 'react';
 import ProductItem from './ProductItem';
 import './ProductList.scss';
 
-const ProductList = ({ productData }) => {
+const ProductList = ({ product }) => {
   return (
     <ul className="productList">
-      {productData.data.map(productList => {
-        return <ProductItem key={productList.id} {...productList} />;
+      {product.map(product => {
+        return <ProductItem key={product.id} {...product} />;
       })}
     </ul>
   );

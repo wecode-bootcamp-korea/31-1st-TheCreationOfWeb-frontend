@@ -1,24 +1,30 @@
 import React from 'react';
 import './DetailSelect.scss';
 
-const DetailSelect = ({ count, setCount, input, setInput }) => {
+const DetailSelect = ({ value, setValue }) => {
   const onCountUp = () => {
-    setCount(prevCount => prevCount + 1);
-    setInput(count + 1);
+    setValue({
+      input: value.count + 1,
+      count: value.count + 1,
+    });
   };
 
   const onCountDown = () => {
-    if (count < 2) {
+    if (value.count < 2) {
       alert('최소 주문수량은 1개입니다.');
       return;
     }
-    setCount(prevCount => prevCount - 1);
-    setInput(count - 1);
+    setValue({
+      input: value.count - 1,
+      count: value.count - 1,
+    });
   };
 
   const inputHandler = e => {
-    setInput(parseInt(e.target.value));
-    setCount(parseInt(e.target.value));
+    setValue({
+      input: parseInt(e.target.value),
+      count: parseInt(e.target.value),
+    });
   };
 
   return (
@@ -27,14 +33,20 @@ const DetailSelect = ({ count, setCount, input, setInput }) => {
       <input
         className="selectInput"
         type="text"
-        value={input}
+        value={value.input}
         onChange={inputHandler}
       />
       <button className="selectBtn" onClick={onCountUp}>
-        <img alt="upArrowImg" src="https://fritz.co.kr/img/btn_quantity_up.gif"/>
+        <img
+          alt="upArrowImg"
+          src="https://fritz.co.kr/img/btn_quantity_up.gif"
+        />
       </button>
       <button className="selectBtn" onClick={onCountDown}>
-        <img alt="downArrowImg" src="https://fritz.co.kr/img/btn_quantity_down.gif"/>
+        <img
+          alt="downArrowImg"
+          src="https://fritz.co.kr/img/btn_quantity_down.gif"
+        />
       </button>
     </div>
   );

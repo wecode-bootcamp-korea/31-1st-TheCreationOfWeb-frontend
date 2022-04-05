@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 export const FruitzProvider = ({ children }) => {
@@ -11,14 +9,14 @@ export const FruitzProvider = ({ children }) => {
   });
 
   const loginValue = { isLogin, setIsLogin };
-  const MOCK_URL = 'http://localhost:3000/data/initialData.json';
+  const MOCK_URL = '/data/initialData.json';
   const API_URL = 'http://10.58.4.8:8000/products?category_id=1';
 
   const getData = async () => {
     const response = await fetch(`${MOCK_URL}`);
     const mockData = await response.json();
-    // const productData = await fetch(`${API_URL}`).then(res => res.json());
-    console.log('ddd:', mockData);
+
+
     setDataValue({
       mock: mockData.data,
     });
