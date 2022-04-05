@@ -19,16 +19,6 @@ const Header = () => {
     });
   };
 
-  const NAV_LIST = [
-    'LOGIN',
-    '',
-    'MY PAGE',
-    '',
-    'CART',
-    '',
-    'ENG VER(GLOBAL SHIPPING)',
-  ];
-
   return (
     <section className="header">
       <nav className="nav">
@@ -57,3 +47,5 @@ const Header = () => {
 };
 
 export default Header;
+
+const NAV_LIST = ['LOGIN', 'MY PAGE', 'CART', 'ENG VER(GLOBAL SHIPPING)'];
