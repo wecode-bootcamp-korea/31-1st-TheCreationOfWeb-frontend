@@ -1,22 +1,19 @@
 @import '../../../styles/variables.scss';
 
-.mainGoodsList{
+
+.mainFruitList{
   display: flex;
   justify-content: center;
   align-items: center;
-  .goodsList{
-    .goodsImg{
+  .fruit{
+    .fruitImg{
       width: 130px;
       height: 130px;
     }
-    .goodsText{
+    .fruitText{
+      text-align: center;
       font-family: $font-main;
       color: $color-navy;
-      text-align: center;
-      font-size: 15px;
     }
   }
 }
-
-
-

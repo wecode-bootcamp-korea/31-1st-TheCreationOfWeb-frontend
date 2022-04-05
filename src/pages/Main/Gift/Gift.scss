@@ -1,15 +1,15 @@
 @import '../../../styles/variables.scss';
 
-.mainGoodsList{
+.mainGiftList{
   display: flex;
   justify-content: center;
   align-items: center;
-  .goodsList{
-    .goodsImg{
+  .gift{
+    .giftImg{
       width: 130px;
       height: 130px;
     }
-    .goodsText{
+    .giftText{
       font-family: $font-main;
       color: $color-navy;
       text-align: center;
@@ -17,6 +17,3 @@
     }
   }
 }
-
-
-

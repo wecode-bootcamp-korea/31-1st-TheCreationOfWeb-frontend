@@ -1,91 +1,135 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useFruitzState } from '../../FruitContext';
-import Slider from './components/MainSection/MainSection.js';
-import ProductMainList from './components/ProductMainList/ProductMainList.js';
-import GoodsList from './components/GoodsList/GoodsList';
+import Slider from './MainSection/MainSection';
+import Juice from './JuiceList/Juice';
+import GoodsList from './GoodsList/GoodsList';
+import Fruit from './Fruit/Fruit';
+import Gift from './Gift/Gift';
+import './Main.scss';
 
-export default function Main({ setIsLogin }) {
+const Main = () => {
+  const [goods, setGoods] = useState([]);
   const [juice, setJuice] = useState([]);
-  const [good, setGood] = useState([]);
+  const [gift, setGift] = useState([]);
+  const [fruit, setFriut] = useState([]);
   const navigate = useNavigate();
-  const productData = useFruitzState();
 
-  console.log(productData);
-  const product = () => {
-    navigate(`/member/login`);
-  };
-  const goods = () => {
+  const pageChange = () => {
     navigate(`/member/join`);
   };
 
-  if (localStorage.getItem('fruitz_user')) {
-    setIsLogin(true);
-  }
-  // useEffect(() => {
-  //   fetch('http://localhost:3000/data/Data.json')
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setData(data);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch('http://localhost:3000/data/Fruit.json')
+      .then(res => res.json())
+      .then(fruit => {
+        setFriut(fruit);
+      });
+  }, []);
 
-  // useEffect(() => {
-  //   fetch('http://localhost:3000/data/Good.json')
-  //     .then(res => res.json())
-  //     .then(good => {
-  //       setGood(good);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch('http://localhost:3000/data/Goods.json')
+      .then(res => res.json())
+      .then(goods => {
+        setGoods(goods);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/data/Gift.json')
+      .then(res => res.json())
+      .then(gift => {
+        setGift(gift);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/data/Juice.json')
+      .then(res => res.json())
+      .then(juice => {
+        setJuice(juice);
+      });
+  }, []);
+
   return (
     <div>
       <Slider slides={Image_Date} />
-      <div className="MainList">
-        <div className="titleListBox">
-          <span className="productTitle">Product</span>
-          <span className="navigate" onClick={product}>
-            더보기
-          </span>
-        </div>
-
-        <ul className="MainProductList">
-          {productData.data.map(product => {
-            return (
-              <ProductMainList
-                key={product}
-                proudctKey={product.id}
-                productSrc={product.img_url}
-                productName={product.name}
-              />
-            );
-          })}
-        </ul>
-
-        <div>
-          <div className="titleListBox">
-            <span className="MainGoodsTitle">Goods</span>
-            <span className="navigate" onClick={goods}>
-              더보기
-            </span>
+      <div className="mainList">
+        <div className="oneHead">
+          <div className="juiceHead">
+            <span className="text">Juice</span>
+            <span className="button">더보기</span>
+          </div>
+          <div className="fruitHead">
+            <span className="text">Fruit</span>
+            <span className="button">더보기</span>
           </div>
         </div>
+        <div className="mainListOne">
+          <ul className="mainJuiceList">
+            {juice.map(juice => {
+              return (
+                <Juice
+                  Key={juice.id}
+                  pageChange={pageChange}
+                  juiceSrc={juice.images}
+                  juiceName={juice.name}
+                />
+              );
+            })}
+          </ul>
 
-        <ul className="MainGoodsList">
-          {productData.data.map(good => {
-            return (
-              <GoodsList
-                key={good}
-                goodKey={good.id}
-                goodSrc={good.img_url}
-                goodName={good.name}
-              />
-            );
-          })}
-        </ul>
+          <ul className="mainFruitList">
+            {fruit.map(fruit => {
+              return (
+                <Fruit
+                  Key={fruit.id}
+                  fruitSrc={fruit.images}
+                  fruitName={fruit.name}
+                />
+              );
+            })}
+          </ul>
+        </div>
+        <div className="twoHead">
+          <div className="goodsHead">
+            <span className="text">Goods</span>
+            <span className="button">더보기</span>
+          </div>
+          <div className="giftHead">
+            <span className="text">Gift</span>
+            <span className="button">더보기</span>
+          </div>
+        </div>
+        <div className="mainListTwo">
+          <ul className="mainGoodsList">
+            {goods.map(goods => {
+              return (
+                <GoodsList
+                  Key={goods.id}
+                  goodsSrc={goods.images}
+                  goodsName={goods.name}
+                />
+              );
+            })}
+          </ul>
+          <ul className="mainGiftList">
+            {gift.map(gift => {
+              return (
+                <Gift
+                  key={gift.id}
+                  giftSrc={gift.images}
+                  giftName={gift.name}
+                />
+              );
+            })}
+          </ul>
+        </div>
       </div>
     </div>
   );
-}
+};
+
+export default Main;
 
 const Image_Date = [
   {
