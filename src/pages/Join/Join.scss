@@ -1,0 +1,72 @@
+@import '../../styles/variables.scss';
+
+.Join {
+  @include fontSet;
+  display: flex;
+  font-weight: 500;
+  font-size: 11px;
+  color: $color-black;
+
+  .inputCategory {
+    display: flex;
+  }
+
+  .categoryText {
+    padding-top: 5px;
+    width: 120px;
+    height: 50px;
+  }
+
+  .inputBox {
+    width: 120px;
+    height: 25px;
+    margin-right: 10px;
+    background-color: transparent;
+    border: 1px solid #d5d5d5;
+  }
+
+  .inputAddress {
+    width: 250px;
+  }
+
+  .checkButton,
+  .addressButton {
+    @include fontSet;
+    font-size: $font-size-default;
+    font-weight: 500;
+    width: 70px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+  }
+
+  .agreeButtonBox {
+    text-align: center;
+    margin-top: 70px;
+
+    .joinButton,
+    .cancelButton {
+      @include fontSet;
+      width: 80px;
+      height: 40px;
+      font-size: $font-size-default;
+      font-weight: 500;
+      background-color: $color-navy;
+      color: $color-background;
+      border: none;
+      margin-right: 3px;
+      cursor: pointer;
+    }
+
+    .joinButton {
+      background-color: $color-navy;
+      color: $color-background;
+    }
+
+    .cancelButton {
+      border: 1px solid $color-navy;
+      background-color: transparent;
+      color: $color-navy;
+    }
+  }
+}
