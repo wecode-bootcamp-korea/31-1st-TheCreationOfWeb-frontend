@@ -7,10 +7,7 @@ import DetailBtn from './DetailBtn';
 import './Detail.scss';
 
 const Detail = () => {
-  const [value, setValue] = useState({
-    input: 1,
-    count: 1,
-  });
+  const [count, setCount] = useState(1);
 
   const [detailTabs, setDetailTabs] = useState(0);
   const productData = useFruitzState();
@@ -48,8 +45,8 @@ const Detail = () => {
         </ul>
         {detailTabs === 0 && <DetailInfo />}
         <div className="purchase">
-          <DetailSelect value={value} setValue={setValue} />
-          <DetailBtn count={value.count} price={price} id={id} />
+          <DetailSelect count={count} setCount={setCount} />
+          <DetailBtn count={count} price={price} id={id} />
         </div>
       </div>
     </section>

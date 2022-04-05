@@ -1,30 +1,21 @@
 import React from 'react';
 import './DetailSelect.scss';
 
-const DetailSelect = ({ value, setValue }) => {
+const DetailSelect = ({ count, setCount }) => {
   const onCountUp = () => {
-    setValue({
-      input: value.count + 1,
-      count: value.count + 1,
-    });
+    setCount(prevCount => prevCount + 1);
   };
 
   const onCountDown = () => {
-    if (value.count < 2) {
+    if (count < 2) {
       alert('최소 주문수량은 1개입니다.');
       return;
     }
-    setValue({
-      input: value.count - 1,
-      count: value.count - 1,
-    });
+    setCount(prevCount => prevCount - 1);
   };
 
   const inputHandler = e => {
-    setValue({
-      input: parseInt(e.target.value),
-      count: parseInt(e.target.value),
-    });
+    setCount(parseInt(e.target.value));
   };
 
   return (
@@ -33,7 +24,7 @@ const DetailSelect = ({ value, setValue }) => {
       <input
         className="selectInput"
         type="text"
-        value={value.input}
+        value={count}
         onChange={inputHandler}
       />
       <button className="selectBtn" onClick={onCountUp}>
