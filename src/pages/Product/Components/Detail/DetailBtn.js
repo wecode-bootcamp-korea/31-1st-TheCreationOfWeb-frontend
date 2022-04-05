@@ -11,7 +11,6 @@ const DetailBtn = ({ count, price, id }) => {
 
   const addCart = () => {
     const body = JSON.stringify({
-      user: '1',
       product: id,
       quantity: count,
       price: price,
