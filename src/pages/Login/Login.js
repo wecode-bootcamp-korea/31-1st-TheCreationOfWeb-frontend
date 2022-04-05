@@ -4,8 +4,8 @@ import './Login.scss';
 
 const Login = () => {
   const [loginInputs, setLoginInputs] = useState({
-    id: '',
-    pw: '',
+    idValue: '',
+    pwValue: '',
   });
 
   const navigate = useNavigate();
@@ -24,17 +24,18 @@ const Login = () => {
     fetch('http://10.58.1.146:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
-        user: loginInputs.id,
-        password: loginInputs.pw,
+        user: loginInputs.idValue,
+        password: loginInputs.pwValue,
       }),
     })
       .then(res => res.status === 200 && res.json())
       .then(res => {
         if (res.token) {
+          alert('로그인 성공');
           localStorage.setItem('fruitz_user', res.token);
           navigate('/');
         } else {
-          alert('아이디 또는 비밀번호가 일치하지 않습니다.');
+          alert('로그인 실패.');
         }
       });
   };
