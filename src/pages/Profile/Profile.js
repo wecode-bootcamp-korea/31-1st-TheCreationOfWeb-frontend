@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 import './Profile.scss';
@@ -21,7 +21,27 @@ const Profile = () => {
     });
   };
 
+  //   useEffect(() => {
+  //     const goToMain  = ()  => {
+  //     fetch('http://10.58.6.155:8000/users/user', {
+  //       method: 'GET',
+  //       headers: {
+  //         Authorization: localStorage.getItem('fruitz_user'),
+  //       },
+  //     })
+  //       .then(response => response.json())
+  //       .then(data => {setProfileInputs(data)
+  //         navigate('/')
+
+  //       });
+  //   }, []) ;
+  // };
+
   const goToMain = () => {
+    navigate('/');
+  };
+
+  useEffect(() => {
     fetch('http://10.58.6.155:8000/users/user', {
       headers: {
         Authorization: localStorage.getItem('fruitz_user'),
@@ -30,9 +50,9 @@ const Profile = () => {
       .then(response => response.json())
       .then(data => {
         setProfileInputs(data);
-        navigate('/');
       });
-  };
+  }, []);
+  console.log(profileInputs);
 
   return (
     <main className="Join">
@@ -46,8 +66,8 @@ const Profile = () => {
                   type="text"
                   className="inputBox"
                   onChange={handleInputs}
-                  name="id"
-                  defaultValue={profileInputs.id}
+                  name="user"
+                  defaultValue={profileInputs.user}
                 />
               </li>
             </ul>
