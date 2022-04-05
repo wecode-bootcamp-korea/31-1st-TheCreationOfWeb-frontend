@@ -10,16 +10,6 @@ const Cart = () => {
   const isCartValid = carts.cart_list ? true : false;
 
   useEffect(() => {
-    // TODO : API 백엔등 연결용
-    const API_CART = 'http://10.58.1.146:8000/carts/cart';
-    // const getCartData = await fetch(`${API_CART}`, {
-    //   method: 'GET',
-    //   headers: {
-    //     Authorization: token,
-    //   },
-    // }).then(res => res.json());
-    // console.log(getCartData.cart_list);
-
     const MOCK_CART = 'data/cartData.json';
 
     const getCartData = async () => {

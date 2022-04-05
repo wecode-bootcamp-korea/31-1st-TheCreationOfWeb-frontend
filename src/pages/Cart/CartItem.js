@@ -2,7 +2,7 @@ import Reac, { useState } from 'react';
 import { FiX } from 'react-icons/fi';
 import './CartItem.scss';
 
-const CartItem = ({ quantity, item, name, price, carts, setCarts, idx }) => {
+const CartItem = ({ item, name, price, carts, setCarts, idx }) => {
   const [value, setValue] = useState({
     input: 1,
     count: 1,
@@ -16,7 +16,7 @@ const CartItem = ({ quantity, item, name, price, carts, setCarts, idx }) => {
   };
 
   const countDown = () => {
-    if (count < 2) {
+    if (value.count < 2) {
       alert('최소 주문수량은 1개입니다.');
       return;
     }
@@ -33,9 +33,9 @@ const CartItem = ({ quantity, item, name, price, carts, setCarts, idx }) => {
     });
   };
 
-  const deleteItem = e => {
+  const deleteItem = () => {
+    // TODO : 카트 아이템 개별 삭제 구현 할것
     const copyCartItem = [...carts];
-    // TODO : 카트 아이템 삭제 구현
     const filteredCartItem = copyCartItem.filter(item => item.id !== idx);
     setCarts(filteredCartItem);
   };
