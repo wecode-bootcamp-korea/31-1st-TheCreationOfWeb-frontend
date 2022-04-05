@@ -1,36 +1,24 @@
-import Reac, { useState } from 'react';
+import React, { useState } from 'react';
 import { FiX } from 'react-icons/fi';
 import './CartItem.scss';
 
 const CartItem = ({ item, name, price, carts, setCarts, idx }) => {
-  const [value, setValue] = useState({
-    input: 1,
-    count: 1,
-  });
+  const [count, setCount] = useState(1);
 
   const countUp = () => {
-    setValue({
-      input: value.count + 1,
-      count: value.count + 1,
-    });
+    setCount(prevCount => prevCount + 1);
   };
 
   const countDown = () => {
-    if (value.count < 2) {
+    if (count < 2) {
       alert('최소 주문수량은 1개입니다.');
       return;
     }
-    setValue({
-      input: value.count - 1,
-      count: value.count - 1,
-    });
+    setCount(prevCount => prevCount - 1);
   };
 
   const inputHandler = e => {
-    setValue({
-      input: parseInt(e.target.value),
-      count: parseInt(e.target.value),
-    });
+    setCount(parseInt(e.target.value));
   };
 
   const deleteItem = () => {
@@ -53,7 +41,7 @@ const CartItem = ({ item, name, price, carts, setCarts, idx }) => {
         <input
           className="quantity"
           type="text"
-          value={value.input}
+          value={count}
           onChange={inputHandler}
         />
         <button className="countBtn">
