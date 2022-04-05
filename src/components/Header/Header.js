@@ -13,13 +13,11 @@ const Header = () => {
       alert('다국어는 지금 지원하지 않습니다.');
       return;
     }
-    if (isLogin) {
-      if (idx === 0) {
-        localStorage.removeItem('fruitz_user');
-        setIsLogin(false);
-        navigate('member/login');
-        return;
-      }
+    if (isLogin && index === 0) {
+      localStorage.removeItem('fruitz_user');
+      setIsLogin(false);
+      navigate('member/login');
+      return;
     }
     navigate({
       pathname:
