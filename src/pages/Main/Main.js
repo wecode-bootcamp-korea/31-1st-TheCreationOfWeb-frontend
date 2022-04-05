@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useFruitzState } from '../../FruitContext';
-import Slider from './components/MainSection/MainSection.js';
-import ProductMainList from './components/ProductMainList/ProductMainList.js';
-import GoodsList from './components/GoodsList/GoodsList';
+// import { useFruitzState } from '../../FruitContext';
+import Slider from './MainSection/MainSection';
+import ProductMainList from './ProductMainList/ProductMainList.js';
+import GoodsList from './GoodsList/GoodsList';
 
 export default function Main({ setIsLogin }) {
   const [juice, setJuice] = useState([]);
   const [good, setGood] = useState([]);
+  const [] = useState([]);
+  const [] = useState([]);
   const navigate = useNavigate();
   const productData = useFruitzState();
 

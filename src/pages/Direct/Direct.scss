@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic+Coding&display=swap');
+@import '../../styles/variables.scss';
+.Direct{
+  width:100%
+}
+.DirectBox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  // align-items: center;
+  width:500px;
+  background-color:#FAF0E6;
+  
+  .DirectHeadText{
+    color: #FAF0E6;
+  }
+
+  .DirectSmallBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .Directimg{
+    width: 90%;
+  
+  }
+
+  .DirectText{
+    text-align: center;
+    color: $color-navy;
+    font-size: 45px;
+    font-family: 'Jua', sans-serif;
+  }
+
+}

@@ -1,6 +1,5 @@
 import React from 'react';
 import './ProductMainList.scss';
-import '../../../../styles/variables.scss';
 
 const ProductMainList = ({ proudctKey, productSrc, productName }) => {
   return (
