@@ -1,30 +1,36 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import BoxData from './BoxData';
 import './MyPage.scss';
 
 const MyPage = () => {
   const CARD_LIST = [
     {
+      id: 1,
       title: 'ORDER',
       content: '주문내역',
     },
     {
+      id: 2,
       title: 'ORDER',
       content: '주문내역',
     },
     {
+      id: 3,
       title: 'ORDER',
       content: '주문내역',
     },
     {
+      id: 4,
       title: 'ORDER',
       content: '주문내역',
     },
     {
+      id: 5,
       title: 'ORDER',
       content: '주문내역',
     },
     {
+      id: 6,
       title: 'ORDER',
       content: '주문내역',
     },
@@ -43,11 +49,16 @@ const MyPage = () => {
             </li>
           </ul>
         </div>
-        <ul className="cardList">
-          {CARD_LIST.map((cardList, i) => {
-            return <BoxData key={i} {...cardList} />;
-          })}
-        </ul>
+        <div className="cardList">
+          {CARD_LIST.map((cardList, idx) => (
+            <BoxData
+              key={cardList.id}
+              idx={idx}
+              title={cardList.title}
+              content={cardList.content}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );
