@@ -2,22 +2,17 @@ import Reac, { useState } from 'react';
 import { FiX } from 'react-icons/fi';
 import './CartItem.scss';
 
-const CartItem = ({
-  quantity,
-  item,
-  name,
-  price,
-  carts,
-  cart,
-  setCarts,
-  idx,
-}) => {
-  const [quanInput, setQuanInput] = useState(quantity);
-  const [count, setCount] = useState(quantity);
-  console.log('cart 카운트:', count);
+const CartItem = ({ quantity, item, name, price, carts, setCarts, idx }) => {
+  const [value, setValue] = useState({
+    input: 1,
+    count: 1,
+  });
+
   const countUp = () => {
-    setCount(prevCount => prevCount + 1);
-    setQuanInput(count + 1);
+    setValue({
+      input: value.count + 1,
+      count: value.count + 1,
+    });
   };
 
   const countDown = () => {
@@ -25,13 +20,17 @@ const CartItem = ({
       alert('최소 주문수량은 1개입니다.');
       return;
     }
-    setCount(prevCount => prevCount - 1);
-    setQuanInput(count - 1);
+    setValue({
+      input: value.count - 1,
+      count: value.count - 1,
+    });
   };
 
-  const quantityInput = e => {
-    setQuanInput(parseInt(e.target.value));
-    setCount(parseInt(e.target.value));
+  const inputHandler = e => {
+    setValue({
+      input: parseInt(e.target.value),
+      count: parseInt(e.target.value),
+    });
   };
 
   const deleteItem = e => {
@@ -54,19 +53,19 @@ const CartItem = ({
         <input
           className="quantity"
           type="text"
-          name=""
-          id=""
-          value={quanInput}
-          onChange={quantityInput}
+          value={value.input}
+          onChange={inputHandler}
         />
         <button className="countBtn">
           <img
+            alt="upArrowImg"
             src="https://fritz.co.kr/img/btn_quantity_up.gif"
             onClick={countUp}
           />
         </button>
         <button className="countBtn">
           <img
+            alt="downArrowImg"
             src="https://fritz.co.kr/img/btn_quantity_down.gif"
             onClick={countDown}
           />

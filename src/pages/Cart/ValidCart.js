@@ -1,11 +1,9 @@
-import React, { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useFruitzState } from '../../FruitContext';
+import React from 'react';
 import CartItem from './CartItem';
 import CartSummary from './CartSummary';
 import './ValidCart.scss';
 
-const ValidCart = ({ carts, setCarts, totalPrice, setIsCartValid }) => {
+const ValidCart = ({ carts, setCarts, totalPrice }) => {
   const token = localStorage.getItem('fruitz_user') || '';
 
   const removeCartAll = () => {
@@ -20,7 +18,6 @@ const ValidCart = ({ carts, setCarts, totalPrice, setIsCartValid }) => {
         }),
       }).then(res => res.json());
       setCarts([]);
-      setIsCartValid(false);
       window.scrollTo(0, 0);
     }
   };

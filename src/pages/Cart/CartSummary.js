@@ -2,7 +2,6 @@ import React from 'react';
 import './cartSummary.scss';
 
 const CartSummary = ({ totalPrice }) => {
-
   return (
     <ul className="cartSummary">
       <li className="subTitle">

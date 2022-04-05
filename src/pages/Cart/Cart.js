@@ -5,11 +5,12 @@ import ValidCart from './ValidCart';
 import './Cart.scss';
 
 const Cart = () => {
-  const [isCartValid, setIsCartValid] = useState(false);
   const [carts, setCarts] = useState([]);
   const token = localStorage.getItem('fruitz_user') || '';
+  const isCartValid = carts.cart_list ? true : false;
 
   useEffect(() => {
+    // TODO : API 백엔등 연결용
     const API_CART = 'http://10.58.1.146:8000/carts/cart';
     // const getCartData = await fetch(`${API_CART}`, {
     //   method: 'GET',
@@ -27,7 +28,6 @@ const Cart = () => {
       setCarts(cartData);
     };
     getCartData();
-    setIsCartValid(true);
   }, []);
 
   return (
@@ -37,7 +37,6 @@ const Cart = () => {
           carts={carts.cart_list}
           setCarts={setCarts}
           totalPrice={carts.total_price}
-          setIsCartValid={setIsCartValid}
         />
       ) : (
         <BlankCart />
