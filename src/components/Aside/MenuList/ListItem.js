@@ -25,9 +25,6 @@ const ListItem = ({
     setSubActiveIdx(idx);
     navigate({
       pathname: `/product/${e.target.innerText.replace(' ', '').toLowerCase()}`,
-      state: {
-        title: idx,
-      },
     });
   };
 

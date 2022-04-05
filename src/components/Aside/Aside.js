@@ -6,6 +6,7 @@ import './Aside.scss';
 const Aside = () => {
   const [isOpenSubMenu, setIsOpenSubMenu] = useState(false);
   const navigate = useNavigate();
+  
   const onRefresh = () => {
     navigate('/');
     setIsOpenSubMenu(false);
