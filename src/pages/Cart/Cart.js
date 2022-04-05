@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React, { useEffect, useState } from 'react';
 import BlankCart from './BlankCart';
 import ValidCart from './ValidCart';
