@@ -5,7 +5,6 @@ import './Cart.scss';
 
 const Cart = () => {
   const [carts, setCarts] = useState([]);
-  const token = localStorage.getItem('fruitz_user') || '';
   const isCartValid = carts.cart_list ? true : false;
 
   useEffect(() => {
