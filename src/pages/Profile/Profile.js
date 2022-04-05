@@ -5,11 +5,10 @@ import './Profile.scss';
 
 const Profile = () => {
   const [profileInputs, setProfileInputs] = useState({
-    idValue: '',
-    userValue: '',
-    addressValue: '',
-    phone_numberValue: '',
-    amountValue: '',
+    user: '',
+    address: '',
+    phone_number: '',
+    amount: '',
   });
 
   const navigate = useNavigate();
@@ -23,11 +22,10 @@ const Profile = () => {
   };
 
   const goToMain = () => {
-    fetch('/data/userInfo.json', {
+    fetch('http://10.58.6.155:8000/users/user', {
       headers: {
         Authorization: localStorage.getItem('fruitz_user'),
       },
-      body: JSON.stringify,
     })
       .then(response => response.json())
       .then(data => {
@@ -49,6 +47,7 @@ const Profile = () => {
                   className="inputBox"
                   onChange={handleInputs}
                   name="id"
+                  defaultValue={profileInputs.id}
                 />
               </li>
             </ul>
@@ -62,6 +61,7 @@ const Profile = () => {
                   className="inputBox"
                   onChange={handleInputs}
                   name="address"
+                  defaultValue={profileInputs.address}
                 />
               </li>
             </ul>
@@ -76,6 +76,7 @@ const Profile = () => {
                   className="inputBox"
                   onChange={handleInputs}
                   name="phone_number"
+                  defaultValue={profileInputs.phone_number}
                 />
               </li>
             </ul>
@@ -90,6 +91,7 @@ const Profile = () => {
                   className="inputBox"
                   onChange={handleInputs}
                   name="amount"
+                  defaultValue={profileInputs.amount}
                 />
               </li>
             </ul>
