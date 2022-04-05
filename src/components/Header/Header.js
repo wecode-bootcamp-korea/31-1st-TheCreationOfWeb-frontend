@@ -1,24 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useFruitzState } from '../../FruitContext';
 import './Header.scss';
 
 const Header = () => {
   const navigate = useNavigate();
-  const loginState = useFruitzState();
-  const { isLogin, setIsLogin } = loginState.loginInfo;
 
   const goToPage = (event, idx) => {
     if (idx === 6) {
       alert('다국어는 지금 지원하지 않습니다.');
       return;
     }
-    if (isLogin && index === 0) {
-      localStorage.removeItem('fruitz_user');
-      setIsLogin(false);
-      navigate('member/login');
-      return;
-    }
+
     navigate({
       pathname:
         idx === 0
@@ -28,7 +20,7 @@ const Header = () => {
   };
 
   const NAV_LIST = [
-    isLogin ? 'LOGOUT' : 'LOGIN',
+    'LOGIN',
     '',
     'MY PAGE',
     '',
