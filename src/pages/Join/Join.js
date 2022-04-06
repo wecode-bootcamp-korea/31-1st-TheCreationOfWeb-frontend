@@ -13,7 +13,7 @@ const Join = () => {
   });
 
   const goToMain = () => {
-    fetch('http://10.58.4.32:8000/users/signup', {
+    fetch('http://10.58.1.198:8000/users/signup', {
       method: 'POST',
       body: JSON.stringify({
         user: joinInput.id,
