@@ -1,7 +1,8 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './Header.scss';
-const Header = ({ isLogin, setIsLogin }) => {
+
+const Header = () => {
   const navigate = useNavigate();
 
   const goToPage = (event, idx) => {
@@ -9,14 +10,7 @@ const Header = ({ isLogin, setIsLogin }) => {
       alert('다국어는 지금 지원하지 않습니다.');
       return;
     }
-    if (isLogin) {
-      if (idx === 0) {
-        localStorage.removeItem('fruitz_user');
-        setIsLogin(false);
-        navigate('member/login');
-        return;
-      }
-    }
+
     navigate({
       pathname:
         idx === 0
@@ -24,16 +18,6 @@ const Header = ({ isLogin, setIsLogin }) => {
           : `${event.target.innerText.replace(' ', '').toLowerCase()}`,
     });
   };
-
-  const navList = [
-    isLogin ? 'LOGOUT' : 'LOGIN',
-    '',
-    'MY PAGE',
-    '',
-    'CART',
-    '',
-    'ENG VER(GLOBAL SHIPPING)',
-  ];
 
   return (
     <section className="header">
@@ -43,7 +27,7 @@ const Header = ({ isLogin, setIsLogin }) => {
           <p className="subTitle">FRESH & NUTRITION</p>
         </div>
         <ul className="navMenu">
-          {navList.map((listName, idx) => {
+          {NAV_LIST.map((listName, idx) => {
             return (
               <li
                 key={idx}
@@ -63,3 +47,5 @@ const Header = ({ isLogin, setIsLogin }) => {
 };
 
 export default Header;
+
+const NAV_LIST = ['LOGIN', 'MY PAGE', 'CART', 'ENG VER(GLOBAL SHIPPING)'];
