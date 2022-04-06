@@ -1,0 +1,62 @@
+@import '../../../../styles/variables.scss';
+
+.detailBtn {
+  text-align: center;
+
+  .detailLook {
+    @include fontSet;
+    margin-bottom: 15px;
+    font-weight: 500;
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .detailBtnSet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .buyBtn {
+      @include fontSet;
+      padding: 15px 0;
+      margin-bottom: 40px;
+      width: 100%;
+      background-color: transparent;
+      border: 1px solid $color-navy;
+      font-weight: 500;
+      font-size: $font-size-default;
+      cursor: pointer;
+      &:hover {
+        color: white;
+        background-color: $color-navy;
+      }
+    }
+
+    .addCartBtn {
+      @include fontSet;
+      border: none;
+      background: none;
+      margin-bottom: 5px;
+      font-size: $font-size-small;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .wishListBtn {
+      @include fontSet;
+      border: none;
+      background: none;
+      font-size: $font-size-small;
+      font-weight: 500;
+      cursor: pointer;
+    }
+  }
+
+  .backBtn {
+    @include fontSet;
+    margin-top: 25px;
+    background: none;
+    border: none;
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
