@@ -8,31 +8,37 @@ const MyPage = () => {
       id: 1,
       title: 'ORDER',
       content: '주문내역',
+      url: '',
     },
     {
       id: 2,
       title: 'PROFILE',
-      content: '주문내역',
+      content: '회원정보',
+      url: '/member/profile',
     },
     {
       id: 3,
       title: 'WISHLIST',
-      content: '주문내역',
+      content: '관심상품',
+      url: '',
     },
     {
       id: 4,
       title: 'COUPON',
       content: '주문내역',
+      url: '',
     },
     {
       id: 5,
       title: 'BOARD',
-      content: '주문내역',
+      content: '쿠폰내역',
+      url: '',
     },
     {
       id: 6,
       title: 'ADDRESS',
-      content: '주문내역',
+      content: '배송지관리',
+      url: '',
     },
   ];
 
@@ -53,7 +59,7 @@ const MyPage = () => {
           {CARD_LIST.map((cardList, idx) => (
             <BoxData
               key={cardList.id}
-              idx={idx}
+              url={cardList.url}
               title={cardList.title}
               content={cardList.content}
             />
