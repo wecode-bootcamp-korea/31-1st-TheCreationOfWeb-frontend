@@ -4,9 +4,13 @@ import './BoxData.scss';
 
 const BoxData = ({ title, content, url }) => {
   const navigate = useNavigate();
+  const itemUrl = url;
   const goToPage = () => {
-    navigate(url);
-    alert('아직 준비중입니다.');
+    if (itemUrl == '') {
+      alert('아직 준비중입니다.');
+    } else {
+      navigate(url);
+    }
   };
 
   return (
