@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-import './Profile.scss';
+// import './Profile.scss';
 
 const Profile = () => {
   const [profileInputs, setProfileInputs] = useState({

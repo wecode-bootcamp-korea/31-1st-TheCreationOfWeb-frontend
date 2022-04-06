@@ -6,7 +6,7 @@ const BoxData = ({ title, content, url }) => {
   const navigate = useNavigate();
   const itemUrl = url;
   const goToPage = () => {
-    if (itemUrl == '') {
+    if (itemUrl === '') {
       alert('아직 준비중입니다.');
     } else {
       navigate(url);

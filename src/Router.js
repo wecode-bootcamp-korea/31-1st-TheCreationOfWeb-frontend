@@ -12,6 +12,7 @@ import Cart from './pages/Cart/Cart';
 import Footer from './components/Footer/Footer';
 import MyPage from './pages/MyPage/MyPage';
 import ScrollToTop from './ScrollToTop';
+import Profile from './pages/Profile/Profile';
 
 function Router() {
   return (
@@ -26,9 +27,10 @@ function Router() {
         <Route path="/product/:fruit" element={<Products />} />
         <Route path="/product/:fruit/detail/:id" element={<Detail />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/mypage" element={<MyPage />} />
+        {/* <Route path="/mypage" element={<MyPage />} /> */}
         {/* <Route path="/contact" element={<Contact />} /> */}
         <Route path="/member/mypage" element={<MyPage />} />
+        <Route path="/member/profile" element={<Profile />} />
       </Routes>
       <Footer />
     </BrowserRouter>
