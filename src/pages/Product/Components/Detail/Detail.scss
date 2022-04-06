@@ -1,0 +1,62 @@
+@import '../../../../styles/variables.scss';
+
+.detail {
+  display: flex;
+
+  .detailContent {
+    .img {
+      width: 40vw;
+    }
+
+    .content {
+      @include fontSet;
+      text-align: center;
+      line-height: 2;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+  }
+
+  .detailAside {
+    padding-top: 100px;
+    width: 230px;
+
+    .asideTitle {
+      @include fontSet;
+      font-size: 18px;
+      font-weight: 500;
+    }
+
+    .asidePrice {
+      @include fontSet;
+      font-weight: 500;
+      font-size: 18px;
+      padding: 15px 0;
+      border-bottom: 1px solid $color-navy;
+    }
+
+    .asideTabs {
+      @include flexCenter;
+      @include fontSet;
+      font-size: 11px;
+
+      li {
+        margin: 15px;
+        font-weight: 500;
+        color: #9b9b9b;
+        cursor: default;
+        &:not(:nth-child(2)) {
+          cursor: pointer;
+        }
+      }
+      .tabsActive {
+        color: $color-navy;
+      }
+    }
+
+    .purchase {
+      border-top: 1px solid $color-navy;
+    }
+  }
+}
