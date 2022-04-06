@@ -38,6 +38,7 @@ const Slider = ({ slides }) => {
   useInterval(() => {
     setCurrent(current === length - 1 ? 0 : current + 1);
   }, 4000);
+
   return (
     <div className="MainSection">
       {slides.map((slide, index) => {
