@@ -1,0 +1,13 @@
+@import '../../../../styles/variables.scss';
+
+.detailInfo {
+  .infoList {
+    @include fontSet;
+    font-weight: 500;
+    font-size: 12px;
+    padding: 5px;
+    li {
+      padding: 15px 0;
+    }
+  }
+}
