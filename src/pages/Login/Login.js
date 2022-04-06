@@ -53,13 +53,13 @@ const Login = () => {
             <input
               type="text"
               className="inputBox"
-              name="ID"
+              name="id"
               onChange={handleInputs}
             />
             <input
               type="password"
               className="inputBox"
-              name="PASSWORD"
+              name="pw"
               onChange={handleInputs}
             />
           </div>
