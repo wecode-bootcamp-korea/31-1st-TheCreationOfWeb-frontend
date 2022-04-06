@@ -12,6 +12,9 @@ const Profile = () => {
   });
 
   const navigate = useNavigate();
+  const goToMyPage = () => {
+    navigate('/member/mypage');
+  };
 
   const handleInputs = e => {
     const { name, value } = e.target;
@@ -39,9 +42,6 @@ const Profile = () => {
   }, []);
 
   console.log('aaa', profileInputs);
-
-  // server data fetching (O)
-  // state save => UI update
 
   return (
     <main className="Join">
@@ -110,7 +110,9 @@ const Profile = () => {
           <button className="joinButton" type="button" onClick={goToMain}>
             CONFIRM
           </button>
-          <button className="cancelButton">CANCEL</button>
+          <button className="cancelButton" type="button" onClick={goToMyPage}>
+            CANCEL
+          </button>
         </div>
       </form>
     </main>
