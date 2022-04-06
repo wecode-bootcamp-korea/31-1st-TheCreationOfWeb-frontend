@@ -1,4 +1,4 @@
-const TeamMember_List_Data = [
+const TEAMEMEBER_LIST_DATA = [
   {
     id: 1,
     src: '/images/한상안1.jpg',
@@ -153,4 +153,4 @@ const TeamMember_List_Data = [
   },
 ];
 
-export default TeamMember_List_Data;
+export default TEAMEMEBER_LIST_DATA;

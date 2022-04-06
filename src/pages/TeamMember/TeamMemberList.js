@@ -3,7 +3,7 @@ import './TeamMemberList.scss';
 import Modal from './Modal';
 
 const TeamMemberList = ({ src, writer, content }) => {
-  let [modalList, setModalList] = useState(false);
+  const [modalList, setModalList] = useState(false);
 
   return (
     <div>
@@ -15,7 +15,7 @@ const TeamMemberList = ({ src, writer, content }) => {
             }}
             className="teamMemberImg"
             src={src}
-            alt=""
+            alt="member"
           />
         </li>
       </ul>

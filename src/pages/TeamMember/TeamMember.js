@@ -4,13 +4,11 @@ import TeamMember_List_Data from './TeamMemberListData';
 const TeamMember = () => {
   return (
     <div className="teamMember">
-      {TeamMember_List_Data.map(teammeber => {
+      {TEAMEMEBER_LIST_DATA.map(teammeber => {
         return (
           <TeamMemberList
             key={teammeber.id}
-            src={teammeber.src}
-            writer={teammeber.writer}
-            content={teammeber.content}
+            {...teammeber}
           />
         );
       })}
