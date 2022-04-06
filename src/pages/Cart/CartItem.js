@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { FiX } from 'react-icons/fi';
 import './CartItem.scss';
 
-const CartItem = ({ item, name, price, carts, setCarts, idx }) => {
-  const [count, setCount] = useState(1);
+const CartItem = ({ id, item, name, price, quantity }) => {
+  const [count, setCount] = useState(quantity);
 
   const countUp = () => {
     setCount(prevCount => prevCount + 1);
@@ -21,11 +21,19 @@ const CartItem = ({ item, name, price, carts, setCarts, idx }) => {
     setCount(parseInt(e.target.value));
   };
 
-  const deleteItem = () => {
-    // TODO : 카트 아이템 개별 삭제 구현 할것
-    const copyCartItem = [...carts];
-    const filteredCartItem = copyCartItem.filter(item => item.id !== idx);
-    setCarts(filteredCartItem);
+  const deleteCartItem = () => {
+    const token = localStorage.getItem('fruitz_user') || '';
+    fetch('http://10.58.1.146:8000/carts/cart', {
+      method: 'DELETE',
+      headers: {
+        Authorization: token,
+      },
+      body: JSON.stringify({
+        product_id: id,
+      }),
+    }).then(res => res.json());
+
+    window.scrollTo(0, 0);
   };
   return (
     <ul className="cartItem">
@@ -60,7 +68,7 @@ const CartItem = ({ item, name, price, carts, setCarts, idx }) => {
         </button>
       </li>
       <li className="removeCart">
-        <FiX className="removeIcon" onClick={deleteItem} />
+        <FiX className="removeIcon" onClick={deleteCartItem} />
       </li>
     </ul>
   );
