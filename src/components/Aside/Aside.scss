@@ -3,13 +3,14 @@
 .aside {
   position: fixed;
   left: 50px;
-  top: 50px;
+  top: 80px;
 
   .asideTitle {
     cursor: pointer;
 
     .titleLogo {
-      width: 105px;
+      margin-bottom: 15px;
+      width: 100px;
     }
 
     .titleName {
