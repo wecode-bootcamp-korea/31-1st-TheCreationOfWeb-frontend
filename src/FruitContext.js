@@ -1,23 +1,23 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 export const FruitzProvider = ({ children }) => {
-  const [mockData, setMockData] = useState([]);
+  const [products, setProducts] = useState([]);
 
   const API_URL = '/data/initialData.json';
 
-  const getData = async () => {
+  const getProductsData = async () => {
     const response = await fetch(`${API_URL}`);
-    const mockData = await response.json();
+    const productsResData = await response.json();
 
-    setMockData(mockData.data);
+    setProducts(productsResData.data);
   };
 
   useEffect(() => {
-    getData();
+    getProductsData();
   }, []);
 
   return (
-    <FruitzStateContext.Provider value={mockData}>
+    <FruitzStateContext.Provider value={products}>
       {children}
     </FruitzStateContext.Provider>
   );
