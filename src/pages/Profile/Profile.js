@@ -21,22 +21,6 @@ const Profile = () => {
     });
   };
 
-  //   useEffect(() => {
-  //     const goToMain  = ()  => {
-  //     fetch('http://10.58.6.155:8000/users/user', {
-  //       method: 'GET',
-  //       headers: {
-  //         Authorization: localStorage.getItem('fruitz_user'),
-  //       },
-  //     })
-  //       .then(response => response.json())
-  //       .then(data => {setProfileInputs(data)
-  //         navigate('/')
-
-  //       });
-  //   }, []) ;
-  // };
-
   const goToMain = () => {
     navigate('/');
   };
@@ -52,7 +36,7 @@ const Profile = () => {
         setProfileInputs(data);
       });
   }, []);
-  console.log(profileInputs);
+  console.log(profileInputs.user);
 
   return (
     <main className="Join">
@@ -67,7 +51,7 @@ const Profile = () => {
                   className="inputBox"
                   onChange={handleInputs}
                   name="user"
-                  defaultValue={profileInputs.user}
+                  value={profileInputs.user}
                 />
               </li>
             </ul>
