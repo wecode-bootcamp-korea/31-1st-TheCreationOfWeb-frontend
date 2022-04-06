@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import './ListItem.scss';
 
 const ListItem = ({
@@ -19,7 +19,6 @@ const ListItem = ({
     setActiveIndex(idx);
     setSubActiveIdx(null);
     !list && navigate(`/${title.replace(' ', '').toLowerCase()}`);
-    // !list && navigate(`products?category_id=1&product_id=1`);
   };
 
   const handleLink = (e, idx) => {
