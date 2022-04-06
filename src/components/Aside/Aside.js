@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import MenuList from './MenuList/MenuList';
+import './Aside.scss';
 
 const Aside = () => {
-<<<<<<< HEAD
-  return <div>Aside</div>;
-=======
   const [isOpenSubMenu, setIsOpenSubMenu] = useState(false);
   const navigate = useNavigate();
 
@@ -24,7 +24,6 @@ const Aside = () => {
       />
     </section>
   );
->>>>>>> main
 };
 
 export default Aside;
