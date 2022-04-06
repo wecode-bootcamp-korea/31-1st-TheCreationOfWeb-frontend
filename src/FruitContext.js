@@ -1,10 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 
 export const FruitzProvider = ({ children }) => {
-  const [dataValue, setDataValue] = useState({
-    mock: [],
-    product: [],
-  });
+  const [mockData, setMockData] = useState([]);
 
   const API_URL = '/data/initialData.json';
 
@@ -12,9 +9,7 @@ export const FruitzProvider = ({ children }) => {
     const response = await fetch(`${API_URL}`);
     const mockData = await response.json();
 
-    setDataValue({
-      mock: mockData.data,
-    });
+    setMockData(mockData.data);
   };
 
   useEffect(() => {
@@ -22,7 +17,7 @@ export const FruitzProvider = ({ children }) => {
   }, []);
 
   return (
-    <FruitzStateContext.Provider value={{ data: dataValue.mock }}>
+    <FruitzStateContext.Provider value={mockData}>
       {children}
     </FruitzStateContext.Provider>
   );

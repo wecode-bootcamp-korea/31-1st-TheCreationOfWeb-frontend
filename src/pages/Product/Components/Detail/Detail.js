@@ -13,6 +13,7 @@ const Detail = () => {
   const productData = useFruitzState();
   const { id } = useParams();
   const { name, price, images } = productData.data[id - 1];
+
   return (
     <section className="detail">
       <div className="detailContent">
@@ -29,7 +30,7 @@ const Detail = () => {
           <h3 className="asidePrice">{price}</h3>
         </div>
         <ul className="asideTabs">
-          {TAB_LIST.map((tabsName, idx) => {
+          {TAB_LIST.map((tabsTitle, idx) => {
             return (
               <li
                 className={detailTabs === idx ? 'tabsActive' : ''}
@@ -38,7 +39,7 @@ const Detail = () => {
                   setDetailTabs(idx);
                 }}
               >
-                {tabsName}
+                {tabsTitle}
               </li>
             );
           })}

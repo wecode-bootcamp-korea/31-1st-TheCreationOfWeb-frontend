@@ -16,7 +16,7 @@ const DetailBtn = ({ count, price, id }) => {
       price: price,
     });
 
-    // TODO: API 연결
+    // TODO: 장바구니 API 연결
     fetch('', {
       method: 'POST',
       body,
