@@ -4,8 +4,8 @@ import './Login.scss';
 
 const Login = () => {
   const [loginInputs, setLoginInputs] = useState({
-    idValue: '',
-    pwValue: '',
+    id: '',
+    pw: '',
   });
 
   const navigate = useNavigate();
@@ -24,18 +24,18 @@ const Login = () => {
     fetch('http://10.58.1.198:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
-        user: loginInputs.idValue,
-        password: loginInputs.pwValue,
+        user: loginInputs.id,
+        password: loginInputs.pw,
       }),
     })
       .then(res => res.json())
-      .then(res => {
-        if (res.token) {
+      .then(result => {
+        if (result.token) {
           alert('로그인 성공');
-          localStorage.setItem('token', res.token);
+          localStorage.setItem('token', result.token);
           navigate('/');
         } else {
-          alert('로그인 실패.');
+          alert('로그인 실패');
         }
       });
   };
