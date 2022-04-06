@@ -8,7 +8,6 @@ import Header from './components/Header/Header';
 function Router() {
   return (
     <BrowserRouter>
-      <Header />
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/member/login" element={<Login />} />

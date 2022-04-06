@@ -110,9 +110,9 @@ const TeamMember_List_Data = [
   },
   {
     id: 19,
-    src: '/images/노영완2.jpg',
-    writer: 'Saumyubal_saumyubal',
-    content: '????? 꼴아보지마!!',
+    src: '/images/꽃.jpg',
+    writer: 'flower_so_so-so',
+    content: '이!!쁘!!다!!',
   },
   {
     id: 20,
