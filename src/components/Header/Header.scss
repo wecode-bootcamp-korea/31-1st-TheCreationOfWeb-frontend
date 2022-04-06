@@ -37,14 +37,13 @@
     font-size: 12px;
 
     .navList {
-      &:nth-child(even) {
-        width: 1px;
-        height: 8px;
-        background-color: $color-navy;
-      }
-      &:not(:nth-child(even)) {
-        margin: 0 10px;
-        cursor: pointer;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      cursor: pointer;
+      &:not(:last-child) {
+        border-right: 1px solid $color-navy;
+        height: 10px;
       }
     }
   }

@@ -23,11 +23,9 @@ const ListItem = ({
 
   const handleLink = (e, idx) => {
     setSubActiveIdx(idx);
+
     navigate({
       pathname: `/product/${e.target.innerText.replace(' ', '').toLowerCase()}`,
-      state: {
-        title: idx,
-      },
     });
   };
 
@@ -38,21 +36,23 @@ const ListItem = ({
       </div>
       <div className={idx === activeIndex ? '' : 'closed'}>
         {isOpenSubMenu &&
-          list?.map((subList, index) => {
+          list?.map((sub, idx) => {
             return (
               <div
-                key={index}
-                onClick={subList => handleLink(subList, index)}
+                key={sub.id}
+                onClick={e => {
+                  handleLink(e, idx);
+                }}
                 className="listSub"
               >
                 <div
                   className={
-                    subActiveIdx === index
+                    subActiveIdx === idx
                       ? ['listDot', 'listActive'].join(' ')
                       : 'listDot'
                   }
                 />
-                {subList}
+                {sub.name}
               </div>
             );
           })}
