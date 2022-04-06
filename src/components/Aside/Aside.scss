@@ -1,11 +1,4 @@
 @import '../../styles/variables.scss';
-@font-face {
-  font-family: 'SEBANG_Gothic_Bold';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2104@1.0/SEBANG_Gothic_Bold.woff')
-    format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
 
 .aside {
   position: fixed;
@@ -21,7 +14,7 @@
 
     .titleName {
       font-size: 23px;
-      font-family: 'SEBANG_Gothic_Bold';
+      font-family: $font-sebang;
       letter-spacing: 5px;
       color: $color-title;
     }
