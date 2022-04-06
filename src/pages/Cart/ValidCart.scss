@@ -1,0 +1,75 @@
+@import '../../styles/variables.scss';
+
+.validCart {
+  display: flex;
+
+  .cartContainer {
+    margin-right: 20px;
+    .cartTitle {
+      margin-right: 20px;
+      .title {
+        display: flex;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid #d5d5d5;
+        width: 550px;
+        .chkBox {
+          width: 20px;
+          height: 20px;
+        }
+        li {
+          font-family: $font-main;
+          font-size: $font-size-default;
+          margin-right: 60px;
+        }
+      }
+    }
+
+    .cartContent {
+      border-bottom: 1px solid #d5d5d5;
+      width: 550px;
+      li {
+        font-family: $font-main;
+        font-size: $font-size-default;
+        font-weight: 500;
+        &:not(:nth-child(1)) {
+          width: 100px;
+        }
+        &:nth-child(1) {
+          margin-right: 25px;
+        }
+      }
+    }
+
+    .removeItem {
+      margin-top: 20px;
+
+      .removeBtn {
+        width: 80px;
+        margin-right: 7px;
+        padding: 5px 0;
+        background: none;
+        border: none;
+        border-bottom: 1px solid $color-black;
+        font-family: $font-main;
+        font-size: 12px;
+        font-weight: 500;
+        cursor: pointer;
+        &:nth-child(2) {
+          width: 60px;
+        }
+      }
+    }
+  }
+
+  .cartSummary {
+    .summaryTitle {
+      font-family: $font-main;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 20px 0;
+      width: 200px;
+      border-bottom: 1px solid #afafaf;
+    }
+  }
+}

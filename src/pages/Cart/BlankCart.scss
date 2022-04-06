@@ -1,0 +1,14 @@
+@import '../../styles/variables.scss';
+
+.BlankCart {
+  padding-bottom: 250px;
+  .BlankMassage {
+    @include flexCenter;
+    @include fontSet;
+    padding: 50px 0;
+    border-bottom: 1px solid $color-navy;
+    width: 85%;
+    font-size: $font-size-default;
+    font-weight: 500;
+  }
+}
