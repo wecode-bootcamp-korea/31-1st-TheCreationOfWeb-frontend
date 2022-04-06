@@ -26,17 +26,23 @@ const Profile = () => {
   };
 
   useEffect(() => {
-    fetch('http://10.58.6.155:8000/users/user', {
+    fetch('http://10.58.1.198:8000/users/user ', {
       headers: {
-        Authorization: localStorage.getItem('fruitz_user'),
+        Authorization:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NDk0NjgwNjJ9.FpFsvt0y6ByZMq049weSA2pocxqLTyzxAGyKSq6nQHM',
       },
     })
       .then(response => response.json())
       .then(data => {
-        setProfileInputs(data);
+        console.log('data', data);
+        setProfileInputs(data.message);
       });
   }, []);
-  console.log(profileInputs.user);
+
+  console.log('aaa', profileInputs);
+
+  // server data fetching (O)
+  // state save => UI update
 
   return (
     <main className="Join">
@@ -65,7 +71,7 @@ const Profile = () => {
                   className="inputBox"
                   onChange={handleInputs}
                   name="address"
-                  defaultValue={profileInputs.address}
+                  value={profileInputs.address}
                 />
               </li>
             </ul>
@@ -80,7 +86,7 @@ const Profile = () => {
                   className="inputBox"
                   onChange={handleInputs}
                   name="phone_number"
-                  defaultValue={profileInputs.phone_number}
+                  value={profileInputs.phone_number}
                 />
               </li>
             </ul>
@@ -95,7 +101,7 @@ const Profile = () => {
                   className="inputBox"
                   onChange={handleInputs}
                   name="amount"
-                  defaultValue={profileInputs.amount}
+                  value={profileInputs.amount}
                 />
               </li>
             </ul>
