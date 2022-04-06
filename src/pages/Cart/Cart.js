@@ -9,9 +9,10 @@ const Cart = () => {
 
   useEffect(() => {
     const MOCK_CART = 'data/cartData.json';
+    const API = 'http://10.58.1.198:8000/carts';
 
     const getCartData = async () => {
-      const response = await fetch(`${MOCK_CART}`);
+      const response = await fetch(``);
       const cartData = await response.json();
       setCarts(cartData);
     };
