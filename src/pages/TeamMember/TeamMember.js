@@ -1,14 +1,16 @@
 import React from 'react';
 import TeamMemberList from './TeamMemberList';
-import TeamMember_List_Data from './TeamMemberListData';
+import TEAMMEMBER_LIST_DATA from './TeamMemberListData';
 const TeamMember = () => {
   return (
     <div className="teamMember">
-      {TEAMEMEBER_LIST_DATA.map(teammeber => {
+      {TEAMMEMBER_LIST_DATA.map(({ id, src, writer, content }) => {
         return (
           <TeamMemberList
-            key={teammeber.id}
-            {...teammeber}
+            key={id}
+            src={src}
+            writer={writer}
+            content={content}
           />
         );
       })}
