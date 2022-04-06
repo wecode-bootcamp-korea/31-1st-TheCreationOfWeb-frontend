@@ -21,18 +21,18 @@ const Login = () => {
 
   const goToMain = e => {
     e.preventDefault();
-    fetch('http://10.58.1.146:8000/users/signin', {
+    fetch('http://10.58.1.198:8000/users/signin', {
       method: 'POST',
       body: JSON.stringify({
         user: loginInputs.idValue,
         password: loginInputs.pwValue,
       }),
     })
-      .then(res => res.status === 200 && res.json())
+      .then(res => res.json())
       .then(res => {
         if (res.token) {
           alert('로그인 성공');
-          localStorage.setItem('fruitz_user', res.token);
+          localStorage.setItem('token', res.token);
           navigate('/');
         } else {
           alert('로그인 실패.');
@@ -69,7 +69,7 @@ const Login = () => {
             <div className="search">비밀번호 찾기</div>
           </div>
           <span className="buttonBox">
-            <button className="button" onClick={goToMain}>
+            <button className="button" onClick={goToMain} type="button">
               로그인
             </button>
             <button className="button" onClick={goToJoin}>
