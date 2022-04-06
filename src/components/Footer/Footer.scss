@@ -1,13 +1,14 @@
 @import '../../styles/variables.scss';
 
-.widthFooter {
+.footer {
   margin-top: 100px;
   width: 100%;
   padding: 20px 10px 0px;
   bottom: 0px;
   color: #243b5f;
   font-size: 11px;
-  .footer {
+
+  .widthFooter {
     display: inline-block;
     width: 100%;
     ul {
@@ -41,4 +42,3 @@
 .lastText {
   font-family: $font-title;
 }
-
