@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLoginState } from '../../LoginContext';
 import './Login.scss';
 
 const Login = () => {
@@ -7,6 +8,8 @@ const Login = () => {
     id: '',
     pw: '',
   });
+  const loginState = useLoginState();
+  const { isLogin, setIsLogin } = loginState;
 
   const navigate = useNavigate();
 
@@ -32,8 +35,9 @@ const Login = () => {
       .then(result => {
         if (result.token) {
           alert('로그인 성공');
-          localStorage.setItem('token', result.token);
+          localStorage.setItem('fruitz_user', result.token);
           navigate('/');
+          setIsLogin(true);
         } else {
           alert('로그인 실패');
         }
