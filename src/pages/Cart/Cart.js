@@ -8,7 +8,7 @@ const Cart = () => {
   const isCartValid = carts.cart_list ? true : false;
 
   useEffect(() => {
-    const MOCK_CART = 'data/cartData.json';
+    const MOCK_CART = '/data/cartData.json';
 
     const getCartData = async () => {
       const response = await fetch(`${MOCK_CART}`);
