@@ -8,9 +8,10 @@ import Products from './pages/Product/Products';
 import Aside from './components/Aside/Aside';
 import Header from './components/Header/Header';
 import Cart from './pages/Cart/Cart';
-import Contact from './pages/Contact/Contact';
+// import Contact from './pages/Contact/Contact';
 import Footer from './components/Footer/Footer';
 import MyPage from './pages/MyPage/MyPage';
+import Profile from './pages/Profile/Profile';
 import ScrollToTop from './ScrollToTop';
 
 function Router() {
@@ -23,11 +24,12 @@ function Router() {
         <Route path="/" element={<Main />} />
         <Route path="/member/join" element={<Join />} />
         <Route path="/member/login" element={<Login />} />
+        <Route path="/member/profile" element={<Profile />} />
         <Route path="/product/:fruit" element={<Products />} />
         <Route path="/product/:fruit/detail/:id" element={<Detail />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/mypage" element={<MyPage />} />
-        <Route path="/contact" element={<Contact />} />
+        {/* <Route path="/contact" element={<Contact />} /> */}
       </Routes>
       <Footer />
     </BrowserRouter>

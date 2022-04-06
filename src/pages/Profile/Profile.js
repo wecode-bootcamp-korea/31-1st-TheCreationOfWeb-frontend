@@ -28,8 +28,7 @@ const Profile = () => {
   useEffect(() => {
     fetch('http://10.58.1.198:8000/users/user ', {
       headers: {
-        Authorization:
-          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoyLCJleHAiOjE2NDk0NjgwNjJ9.FpFsvt0y6ByZMq049weSA2pocxqLTyzxAGyKSq6nQHM',
+        Authorization: localStorage.getItem('fruitz_user'),
       },
     })
       .then(response => response.json())
