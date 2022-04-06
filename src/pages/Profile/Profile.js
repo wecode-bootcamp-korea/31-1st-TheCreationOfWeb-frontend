@@ -36,12 +36,9 @@ const Profile = () => {
     })
       .then(response => response.json())
       .then(data => {
-        console.log('data', data);
         setProfileInputs(data.message);
       });
   }, []);
-
-  console.log('aaa', profileInputs);
 
   return (
     <main className="Join">
