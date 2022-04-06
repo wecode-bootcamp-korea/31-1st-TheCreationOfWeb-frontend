@@ -11,27 +11,27 @@ const MyPage = () => {
     },
     {
       id: 2,
-      title: 'ORDER',
+      title: 'PROFILE',
       content: '주문내역',
     },
     {
       id: 3,
-      title: 'ORDER',
+      title: 'WISHLIST',
       content: '주문내역',
     },
     {
       id: 4,
-      title: 'ORDER',
+      title: 'COUPON',
       content: '주문내역',
     },
     {
       id: 5,
-      title: 'ORDER',
+      title: 'BOARD',
       content: '주문내역',
     },
     {
       id: 6,
-      title: 'ORDER',
+      title: 'ADDRESS',
       content: '주문내역',
     },
   ];
