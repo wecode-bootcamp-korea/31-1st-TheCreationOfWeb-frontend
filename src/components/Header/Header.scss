@@ -1,0 +1,50 @@
+@import '../../styles/variables.scss';
+
+.header {
+  .nav {
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 30px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    color: $color-navy;
+    width: 100%;
+    background-color: #f8f8ed85;
+  }
+
+  .navTitle {
+    margin-right: 95px;
+
+    .title {
+      font-weight: bolder;
+      font-size: 19px;
+    }
+
+    .subTitle {
+      padding-top: 3px;
+      font-family: $font-main;
+      font-size: 11px;
+    }
+  }
+
+  .navMenu {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    font-family: $font-main;
+    font-size: 12px;
+
+    .navList {
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+      cursor: pointer;
+      &:not(:last-child) {
+        border-right: 1px solid $color-navy;
+        height: 10px;
+      }
+    }
+  }
+}

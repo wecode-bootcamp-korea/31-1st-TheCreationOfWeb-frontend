@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+
+.Mypage {
+  .container {
+    max-width: 900px;
+
+    .textGroup {
+      display: flex;
+      justify-content: flex-end;
+      max-width: 750px;
+      margin-bottom: 50px;
+      font-size: 12px;
+      font-weight: bold;
+      .savedMoney {
+        margin-left: 40px;
+      }
+    }
+  }
+}
+
+.cardList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
