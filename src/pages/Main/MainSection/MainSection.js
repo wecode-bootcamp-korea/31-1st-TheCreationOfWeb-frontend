@@ -57,6 +57,7 @@ const Slider = ({ slides }) => {
         {Array.from({ length: 5 }).map((item, index) => {
           return (
             <div
+              key={item}
               className={current === index ? 'dot active' : 'dot'}
               onClick={() => {
                 moveDot(index);

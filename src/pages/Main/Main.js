@@ -7,14 +7,14 @@ import './Main.scss';
 const Main = () => {
   return (
     <div>
-      <Slider slides={Image_Date} />
+      <Slider slides={IMAGE_DATA} />
     </div>
   );
 };
 
 export default Main;
 
-const Image_Date = [
+const IMAGE_DATA = [
   {
     image: '/images/1.jpg',
   },
