@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaRegCopyright } from 'react-icons/fa';
 import { BsInstagram } from 'react-icons/bs';
-// import './Footer.scss';
+import './Footer.scss';
 
 const Footer = () => {
   return (
