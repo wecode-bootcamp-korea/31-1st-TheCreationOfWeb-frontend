@@ -15,7 +15,7 @@ const Aside = () => {
   return (
     <section className="aside">
       <div className="asideTitle" onClick={goToHome}>
-        <img className="titleLogo" alt="logo" src="/images/logo.png" />
+        <img className="titleLogo" alt="logo" src="/images/titlelogo.png" />
         <h3 className="titleName">프 룯 츠</h3>
       </div>
       <MenuList
