@@ -1,12 +1,23 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './BoxData.scss';
 
-const BoxData = ({ title, content }) => {
+const BoxData = ({ title, content, url }) => {
+  const navigate = useNavigate();
+  const itemUrl = url;
+  const goToPage = () => {
+    if (itemUrl === '') {
+      alert('아직 준비중입니다.');
+    } else {
+      navigate(url);
+    }
+  };
+
   return (
-    <li className="contentsText">
+    <div className="contentsText" onClick={goToPage}>
       <div className="englishText">{title}</div>
       <div className="koreanText">{content}</div>
-    </li>
+    </div>
   );
 };
 
