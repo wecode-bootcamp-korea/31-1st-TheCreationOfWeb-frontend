@@ -33,7 +33,7 @@ function Router() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/member/mypage" element={<MyPage />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/direct" element={<Direct />} />
+        <Route path="/directtrade" element={<Direct />} />
       </Routes>
       <Footer />
     </BrowserRouter>
