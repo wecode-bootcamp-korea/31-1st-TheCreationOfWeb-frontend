@@ -23,7 +23,7 @@ const Footer = () => {
             <p>Ganamgu, Seoul, Korea</p>
           </li>
           <li>
-            <div className="textBoxt">3rd</div>
+            <div className="textBox">3rd</div>
             <p>서울특별시 강남구 청담동 89-8</p>
             <p>1 Floor Nari Chundam</p>
             <p>Ganamgu, Seoul, Korea</p>
