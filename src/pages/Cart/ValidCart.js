@@ -3,7 +3,7 @@ import CartItem from './CartItem';
 import CartSummary from './CartSummary';
 import './ValidCart.scss';
 
-const ValidCart = ({ carts, totalPrice }) => {
+const ValidCart = ({ carts, totalPrice, getCartData }) => {
   const token = localStorage.getItem('fruitz_user') || '';
 
   const removeCartAll = () => {
@@ -37,7 +37,9 @@ const ValidCart = ({ carts, totalPrice }) => {
         </div>
         <div className="cartContent">
           {carts?.map(cart => {
-            return <CartItem key={cart.id} {...cart} />;
+            return (
+              <CartItem key={cart.id} {...cart} getCartData={getCartData} />
+            );
           })}
         </div>
         <div className="removeItem">

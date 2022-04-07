@@ -6,25 +6,30 @@ import './Cart.scss';
 const Cart = () => {
   const [carts, setCarts] = useState([]);
   const isCartValid = carts.cart_list ? true : false;
+  const token = localStorage.getItem('fruitz_user') || '';
+  const API = 'http://10.58.4.182:8000/carts';
+  const headers = {
+    Authorization: token,
+  };
+
+  const getCartData = async () => {
+    const response = await fetch(`${API}`, { headers });
+    const cartData = await response.json();
+    setCarts(cartData);
+  };
 
   useEffect(() => {
-    const token = localStorage.getItem('fruitz_user') || '';
-    const API = 'http://10.58.1.198:8000/carts';
-    const headers = {
-      Authorization: token,
-    };
-    const getCartData = async () => {
-      const response = await fetch(`${API}`, { headers });
-      const cartData = await response.json();
-      setCarts(cartData);
-    };
     getCartData();
-  }, [isCartValid]);
+  }, []);
 
   return (
     <div className="Cart">
-      {isCartValid ? (
-        <ValidCart carts={carts.cart_list} totalPrice={carts.total_price} />
+      {!isCartValid.length === -1 ? (
+        <ValidCart
+          carts={carts.cart_list}
+          totalPrice={carts.total_price}
+          getCartData={getCartData}
+        />
       ) : (
         <BlankCart />
       )}
