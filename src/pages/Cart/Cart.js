@@ -11,7 +11,7 @@ const Cart = () => {
     const MOCK_CART = 'data/cartData.json';
 
     const getCartData = async () => {
-      const response = await fetch(`${MOCK_CART}`);
+      const response = await fetch(``);
       const cartData = await response.json();
       setCarts(cartData);
     };
