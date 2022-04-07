@@ -25,6 +25,7 @@ const DetailBtn = ({ count, price, id }) => {
       headers,
       body,
     });
+    window.scrollTo(0, 0);
     setIsOpenCartModal(true);
   };
 
