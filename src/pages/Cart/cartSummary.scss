@@ -20,6 +20,10 @@
       background-color: transparent;
       border: 1px solid $color-navy;
       cursor: pointer;
+      &:hover {
+        background-color: $color-navy;
+        color: $color-background;
+      }
     }
   }
 }

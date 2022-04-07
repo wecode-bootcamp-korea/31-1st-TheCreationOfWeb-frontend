@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FiX } from 'react-icons/fi';
+import { BASE_URL } from '../../config';
 import './CartItem.scss';
 
 const CartItem = ({ id, name, price, quantity, images, getCartData }) => {
@@ -27,7 +28,7 @@ const CartItem = ({ id, name, price, quantity, images, getCartData }) => {
       Authorization: token,
     };
 
-    fetch(`http://10.58.4.182:8000/carts?cart_id=${id}`, {
+    fetch(`${BASE_URL}carts?cart_id=${id}`, {
       method: 'DELETE',
       headers,
     }).then(setTimeout(() => getCartData(), 300));
