@@ -11,14 +11,18 @@ const DetailBtn = ({ count, price, id }) => {
 
   const addCart = () => {
     const body = JSON.stringify({
-      product: id,
+      product_id: id,
       quantity: count,
       price: price,
     });
 
-    // TODO: 장바구니 API 연결
-    fetch('', {
+    const headers = {
+      Authorization: localStorage.getItem('fruitz_user'),
+    };
+
+    fetch('http://10.58.4.182:8000/carts', {
       method: 'POST',
+      headers,
       body,
     });
     setIsOpenCartModal(true);
