@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FiX } from 'react-icons/fi';
 import './CartItem.scss';
 
-const CartItem = ({ id, item, name, price, quantity }) => {
+const CartItem = ({ id, item, name, price, quantity, images }) => {
   const [count, setCount] = useState(quantity);
 
   const countUp = () => {
@@ -41,10 +41,10 @@ const CartItem = ({ id, item, name, price, quantity }) => {
         <input className="chkBox" type="checkBox" />
       </li>
       <li>
-        <img className="cartImg" src={item} alt="product_img" />
+        <img className="cartImg" src={images[0]} alt="product_img" />
       </li>
       <li className="cartName">{name}</li>
-      <li className="cartPrice">{price}</li>
+      <li className="cartPrice">KRW {Math.floor(price)}</li>
       <li className="cartInput">
         <input
           className="quantity"
