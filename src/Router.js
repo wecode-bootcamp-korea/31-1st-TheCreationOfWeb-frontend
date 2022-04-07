@@ -2,8 +2,8 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login/Login';
 import Join from './pages/Join/Join';
+import TeamMember from './pages/TeamMember/TeamMember';
 import Main from './pages/Main/Main';
-import Direct from './pages/Direct/Direct';
 import Detail from './pages/Product/Components/Detail/Detail';
 import Products from './pages/Product/Products';
 import Aside from './components/Aside/Aside';
@@ -24,6 +24,7 @@ function Router() {
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/member/join" element={<Join />} />
+        <Route path="/teamMember" element={<TeamMember />} />
         <Route path="/member/login" element={<Login />} />
         <Route path="/member/profile" element={<Profile />} />
         <Route path="/product/:fruit" element={<Products />} />
@@ -31,7 +32,6 @@ function Router() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/member/mypage" element={<MyPage />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/member/direct" element={<Direct />} />
       </Routes>
       <Footer />
     </BrowserRouter>
