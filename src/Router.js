@@ -1,8 +1,9 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Main from './pages/Main/Main';
 import Login from './pages/Login/Login';
 import Join from './pages/Join/Join';
+import Main from './pages/Main/Main';
+import Direct from './pages/Direct/Direct';
 import Detail from './pages/Product/Components/Detail/Detail';
 import Products from './pages/Product/Products';
 import Aside from './components/Aside/Aside';
@@ -26,8 +27,9 @@ function Router() {
         <Route path="/product/:fruit" element={<Products />} />
         <Route path="/product/:fruit/detail/:id" element={<Detail />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/contact" element={<Contact />} />
         <Route path="/member/mypage" element={<MyPage />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/member/direct" element={<Direct />} />
       </Routes>
       <Footer />
     </BrowserRouter>
