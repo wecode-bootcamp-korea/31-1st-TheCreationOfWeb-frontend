@@ -1,0 +1,33 @@
+@import '../../../../styles/variables.scss';
+
+.detailSelect {
+  white-space: nowrap;
+  padding: 30px 0;
+  text-align: center;
+
+  .selectName {
+    @include fontSet;
+    margin-right: 10px;
+    font-weight: 500;
+    font-size: 11px;
+  }
+
+  .selectInput {
+    @include fontSet;
+    width: 50px;
+    margin: 0 10px;
+    text-align: center;
+    font-size: 12px;
+    padding-bottom: 5px;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid $color-navy;
+  }
+
+  .selectBtn {
+    margin-right: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,25 @@
+@import '../../styles/variables.scss';
+
+.cartSummary {
+  .subTitle {
+    font-family: $font-main;
+    font-size: 14px;
+    padding: 20px 0;
+    span {
+      display: inline-block;
+      width: 110px;
+    }
+  }
+
+  .checkOutBtn {
+    text-align: end;
+    .checkOut {
+      @include fontSet;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: transparent;
+      border: 1px solid $color-navy;
+      cursor: pointer;
+    }
+  }
+}

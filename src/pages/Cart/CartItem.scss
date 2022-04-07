@@ -1,0 +1,42 @@
+.cartItem {
+  display: flex;
+  align-items: center;
+  padding: 20px 0;
+  border-bottom: 1px solid #d5d5d5;
+  .chkBox {
+    width: 20px;
+    height: 20px;
+  }
+
+  .cartImg {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+  }
+  }
+
+  .quantity {
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #d5d5d5;
+  }
+
+  .removeCart {
+    text-align: center;
+
+    .removeIcon {
+      font-size: 20px;
+      color: #afafaf;
+      cursor: pointer;
+    }
+  }
+
+  .countBtn {
+    background-color: transparent;
+    width: 25px;
+    border: none;
+    cursor: pointer;
+  }
+}
