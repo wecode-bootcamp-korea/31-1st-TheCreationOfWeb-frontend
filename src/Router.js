@@ -30,7 +30,7 @@ function Router() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/mypage" element={<MyPage />} />
         {/* <Route path="/contact" element={<Contact />} /> */}
-        <Route path="/member/teamMember" element={<TeamMember />} />
+        <Route path="/teamMember" element={<TeamMember />} />
       </Routes>
       <Footer />
     </BrowserRouter>

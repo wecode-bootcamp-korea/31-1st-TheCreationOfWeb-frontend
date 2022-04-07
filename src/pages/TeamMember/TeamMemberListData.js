@@ -128,7 +128,7 @@ const TEAMMEMBER_LIST_DATA = [
   },
   {
     id: 22,
-    src: '/images/3.jpg',
+    src: '/images/5.jpg',
     writer: '류미류',
     content: '저는 류미류입니다 사진 4번째',
   },
