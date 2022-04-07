@@ -21,7 +21,7 @@ const Header = () => {
     }
     navigate({
       pathname:
-        idx === 0
+        idx === 0 || idx === 1
           ? `member/${event.target.innerText.replace(' ', '').toLowerCase()}`
           : `${event.target.innerText.replace(' ', '').toLowerCase()}`,
     });

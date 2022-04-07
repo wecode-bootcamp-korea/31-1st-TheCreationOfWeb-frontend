@@ -1,13 +1,29 @@
-import React from 'react';
-import { useFruitzState } from '../../FruitContext';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import ProductList from './Components/ProductList/ProductList';
 
 const Products = () => {
-  const product = useFruitzState();
+  const [product, setProduct] = useState([]);
+  const location = useLocation();
+
+  const fetchData = () => {
+    async function fetchSetProducts() {
+      const response = await fetch(
+        `http://10.58.4.182:8000/products${location.search}`
+      );
+      const data = await response.json();
+      setProduct(data.product_list);
+    }
+    fetchSetProducts();
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, [location.search]);
 
   return (
     <section className="products">
-      <ProductList product={product.data} />
+      {product && <ProductList product={product} />}
     </section>
   );
 };
