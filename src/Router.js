@@ -27,7 +27,7 @@ function Router() {
         <Route path="/product/:fruit" element={<Products />} />
         <Route path="/product/:fruit/detail/:id" element={<Detail />} />
         <Route path="/cart" element={<Cart />} />
-        <Route path="/mypage" element={<MyPage />} />
+        <Route path="/member/mypage" element={<MyPage />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/member/direct" element={<Direct />} />
       </Routes>
