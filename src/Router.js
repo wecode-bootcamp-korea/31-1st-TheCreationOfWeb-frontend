@@ -14,6 +14,7 @@ import Footer from './components/Footer/Footer';
 import MyPage from './pages/MyPage/MyPage';
 import Profile from './pages/Profile/Profile';
 import ScrollToTop from './ScrollToTop';
+import Direct from './pages/Direct/Direct';
 
 function Router() {
   return (
@@ -32,6 +33,7 @@ function Router() {
         <Route path="/cart" element={<Cart />} />
         <Route path="/member/mypage" element={<MyPage />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/direct" element={<Direct />} />
       </Routes>
       <Footer />
     </BrowserRouter>
