@@ -60,12 +60,14 @@ const Login = () => {
               className="inputBox"
               name="id"
               onChange={handleInputs}
+              autocomplete="off"
             />
             <input
               type="password"
               className="inputBox"
               name="pw"
               onChange={handleInputs}
+              autocomplete="off"
             />
           </div>
           <div className="searchBox">

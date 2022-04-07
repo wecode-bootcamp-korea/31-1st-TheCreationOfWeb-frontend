@@ -6,7 +6,7 @@ import './Cart.scss';
 
 const Cart = () => {
   const [carts, setCarts] = useState([]);
-  const isCartValid = carts.length === 0 ? true : false;
+  const isCartValid = carts.total_price !== null && true;
   const token = localStorage.getItem('fruitz_user') || '';
   const headers = {
     Authorization: token,
@@ -15,6 +15,7 @@ const Cart = () => {
   const getCartData = async () => {
     const response = await fetch(`${BASE_URL}carts`, { headers });
     const cartData = await response.json();
+    console.log(cartData);
     setCarts(cartData);
   };
 
