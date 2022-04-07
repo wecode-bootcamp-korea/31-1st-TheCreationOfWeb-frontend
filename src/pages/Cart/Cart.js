@@ -9,8 +9,7 @@ const Cart = () => {
 
   useEffect(() => {
     const token = localStorage.getItem('fruitz_user') || '';
-    // const API = 'http://10.58.1.198:8000/carts';
-    const API = '/data/cartData.json';
+    const API = 'http://10.58.1.198:8000/carts';
     const headers = {
       Authorization: token,
     };
