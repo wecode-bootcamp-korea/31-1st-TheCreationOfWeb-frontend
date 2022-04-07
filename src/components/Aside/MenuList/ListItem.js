@@ -21,11 +21,17 @@ const ListItem = ({
     !list && navigate(`/${title.replace(' ', '').toLowerCase()}`);
   };
 
-  const handleLink = (e, idx) => {
+  const goToSubLink = (e, idx) => {
     setSubActiveIdx(idx);
-
     navigate({
-      pathname: `/product/${e.target.innerText.replace(' ', '').toLowerCase()}`,
+      pathname: `products?category_id=${idx + 1}`,
+    });
+  };
+
+  const goToTitleLink = (e, idx) => {
+    setSubActiveIdx(idx);
+    navigate({
+      pathname: `${e.target.innerText.replace(' ', '').toLowerCase()}`,
     });
   };
 
@@ -40,10 +46,14 @@ const ListItem = ({
             return (
               <div
                 key={sub.id}
-                onClick={e => {
-                  handleLink(e, idx);
-                }}
                 className="listSub"
+                onClick={e => {
+                  if (sub.id < 5) {
+                    goToSubLink(e, idx);
+                  } else {
+                    goToTitleLink(e, idx);
+                  }
+                }}
               >
                 <div
                   className={
@@ -52,7 +62,7 @@ const ListItem = ({
                       : 'listDot'
                   }
                 />
-                {sub.name}
+                <span onClick={e => {}}>{sub.name}</span>
               </div>
             );
           })}
