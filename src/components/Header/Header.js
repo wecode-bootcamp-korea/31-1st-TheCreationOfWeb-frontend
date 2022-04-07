@@ -9,7 +9,7 @@ const Header = () => {
   const { isLogin, setIsLogin } = loginState;
 
   const goToPage = (event, idx) => {
-    if (idx === 6) {
+    if (idx === 3) {
       alert('다국어는 지금 지원하지 않습니다.');
       return;
     }
@@ -19,12 +19,16 @@ const Header = () => {
       navigate('member/login');
       return;
     }
-    navigate({
-      pathname:
-        idx === 0 || idx === 1
-          ? `member/${event.target.innerText.replace(' ', '').toLowerCase()}`
-          : `${event.target.innerText.replace(' ', '').toLowerCase()}`,
-    });
+    if (!isLogin && idx === 1) {
+      alert('회원이 아닙니다.');
+      navigate('member/login');
+    } else if (idx === 2) {
+      navigate(`${event.target.innerText.replace(' ', '').toLowerCase()}`);
+    } else {
+      navigate(
+        `member/${event.target.innerText.replace(' ', '').toLowerCase()}`
+      );
+    }
   };
 
   const NAV_LIST = [
