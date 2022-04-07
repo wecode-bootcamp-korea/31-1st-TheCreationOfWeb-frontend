@@ -134,15 +134,15 @@ const TEAMMEMBER_LIST_DATA = [
   },
   {
     id: 23,
-    src: '/images/남용현1.png',
-    writer: '류미류',
-    content: '저는 류미류입니다 사진 5번째',
+    src: '/images/박진영.jpg',
+    writer: 'ching_ul_geo_ryu',
+    content: '어쩌라고',
   },
   {
     id: 24,
-    src: '/images/1.jpg',
-    writer: '류미류',
-    content: '저는 류미류입니다 사진 4번째',
+    src: '/images/훈이.jpeg',
+    writer: 'huni__cute__h_u_n_i',
+    content: '꼴아보지마 ',
   },
   {
     id: 25,
