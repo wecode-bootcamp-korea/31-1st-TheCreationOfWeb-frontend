@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useLoginState } from '../../LoginContext';
+import { BASE_URL } from '../../config';
 import './Login.scss';
 
 const Login = () => {
@@ -24,7 +25,7 @@ const Login = () => {
 
   const goToMain = e => {
     e.preventDefault();
-    fetch('http://10.58.1.198:8000/users/signin', {
+    fetch(`${BASE_URL}users/signin`, {
       method: 'POST',
       body: JSON.stringify({
         user: loginInputs.id,
@@ -59,12 +60,14 @@ const Login = () => {
               className="inputBox"
               name="id"
               onChange={handleInputs}
+              autocomplete="off"
             />
             <input
               type="password"
               className="inputBox"
               name="pw"
               onChange={handleInputs}
+              autocomplete="off"
             />
           </div>
           <div className="searchBox">
@@ -73,7 +76,7 @@ const Login = () => {
             <div className="search">비밀번호 찾기</div>
           </div>
           <span className="buttonBox">
-            <button className="button" onClick={goToMain} type="button">
+            <button className="button" onClick={goToMain}>
               로그인
             </button>
             <button className="button" onClick={goToJoin}>

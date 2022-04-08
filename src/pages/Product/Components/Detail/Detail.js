@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { BASE_URL } from '../../../../config';
 import DetailInfo from './DetailInfo';
 import DetailSelect from './DetailSelect';
 import DetailBtn from './DetailBtn';
@@ -14,7 +15,7 @@ const Detail = () => {
 
   const fetchData = () => {
     async function fetchSetDetail() {
-      const response = await fetch(`http://10.58.4.182:8000/products/${id}`);
+      const response = await fetch(`${BASE_URL}products/${id}`);
       const data = await response.json();
       setDetailProduct(data.product_detail);
     }

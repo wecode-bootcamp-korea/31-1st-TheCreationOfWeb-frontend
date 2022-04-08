@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { FiX } from 'react-icons/fi';
+import { BASE_URL } from '../../config';
 import './CartItem.scss';
 
-const CartItem = ({ id, item, name, price, quantity, images }) => {
+const CartItem = ({ id, name, price, quantity, images, getCartData }) => {
   const [count, setCount] = useState(quantity);
 
   const countUp = () => {
@@ -23,15 +24,14 @@ const CartItem = ({ id, item, name, price, quantity, images }) => {
 
   const deleteCartItem = () => {
     const token = localStorage.getItem('fruitz_user') || '';
-    fetch('http://10.58.1.146:8000/carts/cart', {
+    const headers = {
+      Authorization: token,
+    };
+
+    fetch(`${BASE_URL}carts?cart_id=${id}`, {
       method: 'DELETE',
-      headers: {
-        Authorization: token,
-      },
-      body: JSON.stringify({
-        product_id: id,
-      }),
-    }).then(res => res.json());
+      headers,
+    }).then(setTimeout(() => getCartData(), 300));
 
     window.scrollTo(0, 0);
   };

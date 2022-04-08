@@ -28,8 +28,8 @@ function Router() {
         <Route path="/teamMember" element={<TeamMember />} />
         <Route path="/member/login" element={<Login />} />
         <Route path="/member/profile" element={<Profile />} />
-        <Route path="/product/:fruit" element={<Products />} />
-        <Route path="/product/:fruit/detail/:id" element={<Detail />} />
+        <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<Detail />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/member/mypage" element={<MyPage />} />
         <Route path="/contact" element={<Contact />} />

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../../../config';
 import CartModal from '../../../Cart/components/CartModal/CartModal';
 import './DetailBtn.scss';
 
@@ -20,7 +21,7 @@ const DetailBtn = ({ count, price, id }) => {
       Authorization: localStorage.getItem('fruitz_user'),
     };
 
-    fetch('http://10.58.4.182:8000/carts', {
+    fetch(`${BASE_URL}carts`, {
       method: 'POST',
       headers,
       body,
