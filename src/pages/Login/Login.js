@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLoginState } from '../../LoginContext';
+import { BASE_URL } from '../../config';
 import './Login.scss';
 
 const Login = () => {
@@ -7,6 +9,8 @@ const Login = () => {
     id: '',
     pw: '',
   });
+  const loginState = useLoginState();
+  const { isLogin, setIsLogin } = loginState;
 
   const navigate = useNavigate();
 
@@ -21,20 +25,22 @@ const Login = () => {
 
   const goToMain = e => {
     e.preventDefault();
-    fetch('http://10.58.1.146:8000/users/signin', {
+    fetch(`${BASE_URL}users/signin`, {
       method: 'POST',
       body: JSON.stringify({
         user: loginInputs.id,
         password: loginInputs.pw,
       }),
     })
-      .then(res => res.status === 200 && res.json())
-      .then(res => {
-        if (res.token) {
-          localStorage.setItem('fruitz_user', res.token);
+      .then(res => res.json())
+      .then(result => {
+        if (result.token) {
+          alert('로그인 성공');
+          localStorage.setItem('fruitz_user', result.token);
           navigate('/');
+          setIsLogin(true);
         } else {
-          alert('아이디 또는 비밀번호가 일치하지 않습니다.');
+          alert('로그인 실패');
         }
       });
   };
@@ -52,14 +58,16 @@ const Login = () => {
             <input
               type="text"
               className="inputBox"
-              name="ID"
+              name="id"
               onChange={handleInputs}
+              autocomplete="off"
             />
             <input
               type="password"
               className="inputBox"
-              name="PASSWORD"
+              name="pw"
               onChange={handleInputs}
+              autocomplete="off"
             />
           </div>
           <div className="searchBox">
@@ -68,10 +76,10 @@ const Login = () => {
             <div className="search">비밀번호 찾기</div>
           </div>
           <span className="buttonBox">
-            <button className="Button" onClick={goToMain}>
+            <button className="button" onClick={goToMain}>
               로그인
             </button>
-            <button className="Button" onClick={goToJoin}>
+            <button className="button" onClick={goToJoin}>
               회원가입
             </button>
           </span>

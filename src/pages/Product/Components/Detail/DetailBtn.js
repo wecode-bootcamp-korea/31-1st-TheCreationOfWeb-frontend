@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../../../config';
 import CartModal from '../../../Cart/components/CartModal/CartModal';
 import './DetailBtn.scss';
 
@@ -11,16 +12,21 @@ const DetailBtn = ({ count, price, id }) => {
 
   const addCart = () => {
     const body = JSON.stringify({
-      product: id,
+      product_id: id,
       quantity: count,
       price: price,
     });
 
-    // TODO: 장바구니 API 연결
-    fetch('', {
+    const headers = {
+      Authorization: localStorage.getItem('fruitz_user'),
+    };
+
+    fetch(`${BASE_URL}carts`, {
       method: 'POST',
+      headers,
       body,
     });
+    window.scrollTo(0, 0);
     setIsOpenCartModal(true);
   };
 

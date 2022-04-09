@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../config';
 
 import './Join.scss';
 
@@ -13,7 +14,7 @@ const Join = () => {
   });
 
   const goToMain = () => {
-    fetch('http://10.58.4.32:8000/users/signup', {
+    fetch(`${BASE_URL}users/signup`, {
       method: 'POST',
       body: JSON.stringify({
         user: joinInput.id,

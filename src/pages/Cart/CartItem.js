@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { FiX } from 'react-icons/fi';
+import { BASE_URL } from '../../config';
 import './CartItem.scss';
 
-const CartItem = ({ item, name, price, carts, setCarts, idx }) => {
-  const [count, setCount] = useState(1);
+const CartItem = ({ id, name, price, quantity, images, getCartData }) => {
+  const [count, setCount] = useState(quantity);
 
   const countUp = () => {
     setCount(prevCount => prevCount + 1);
@@ -21,11 +22,18 @@ const CartItem = ({ item, name, price, carts, setCarts, idx }) => {
     setCount(parseInt(e.target.value));
   };
 
-  const deleteItem = () => {
-    // TODO : 카트 아이템 개별 삭제 구현 할것
-    const copyCartItem = [...carts];
-    const filteredCartItem = copyCartItem.filter(item => item.id !== idx);
-    setCarts(filteredCartItem);
+  const deleteCartItem = () => {
+    const token = localStorage.getItem('fruitz_user') || '';
+    const headers = {
+      Authorization: token,
+    };
+
+    fetch(`${BASE_URL}carts?cart_id=${id}`, {
+      method: 'DELETE',
+      headers,
+    }).then(setTimeout(() => getCartData(), 300));
+
+    window.scrollTo(0, 0);
   };
   return (
     <ul className="cartItem">
@@ -33,10 +41,10 @@ const CartItem = ({ item, name, price, carts, setCarts, idx }) => {
         <input className="chkBox" type="checkBox" />
       </li>
       <li>
-        <img className="cartImg" src={item} alt="product_img" />
+        <img className="cartImg" src={images[0]} alt="product_img" />
       </li>
       <li className="cartName">{name}</li>
-      <li className="cartPrice">{price}</li>
+      <li className="cartPrice">KRW {Math.floor(price)}</li>
       <li className="cartInput">
         <input
           className="quantity"
@@ -60,7 +68,7 @@ const CartItem = ({ item, name, price, carts, setCarts, idx }) => {
         </button>
       </li>
       <li className="removeCart">
-        <FiX className="removeIcon" onClick={deleteItem} />
+        <FiX className="removeIcon" onClick={deleteCartItem} />
       </li>
     </ul>
   );

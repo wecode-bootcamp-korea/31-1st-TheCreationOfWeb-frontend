@@ -10,6 +10,9 @@
 
   .cartImg {
     width: 100px;
+    height: 100px;
+    object-fit: contain;
+  }
   }
 
   .quantity {
@@ -36,4 +39,4 @@
     border: none;
     cursor: pointer;
   }
-}
+

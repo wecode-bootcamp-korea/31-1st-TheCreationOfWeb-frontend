@@ -1,10 +1,16 @@
 import React from 'react';
-
+import { useLoginState } from '../../LoginContext';
 import Slider from './MainSection/MainSection';
 
 import './Main.scss';
 
 const Main = () => {
+  const loginState = useLoginState();
+  const { isLogin, setIsLogin } = loginState;
+  if (localStorage.getItem('fruitz_user')) {
+    setIsLogin(true);
+  }
+
   return (
     <div>
       <Slider slides={IMAGE_DATA} />

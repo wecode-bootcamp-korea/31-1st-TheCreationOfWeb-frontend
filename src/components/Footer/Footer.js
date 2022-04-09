@@ -23,7 +23,7 @@ const Footer = () => {
             <p>Ganamgu, Seoul, Korea</p>
           </li>
           <li>
-            <div className="textBoxt">3rd</div>
+            <div className="textBox">3rd</div>
             <p>서울특별시 강남구 청담동 89-8</p>
             <p>1 Floor Nari Chundam</p>
             <p>Ganamgu, Seoul, Korea</p>
@@ -37,7 +37,7 @@ const Footer = () => {
             </span>
             <p>상호. (주)천지창조</p>
             <p>대표. 남용현 류미류 김동욱 한상안 노영완</p>
-            <p>통신판매업. 류미류 한상안</p>
+            <p>서버판매업. 류미류 한상안</p>
             <p>UI판매업. 남용현 김동욱 노영완</p>
             <br />
             <p>TEl. 010 1234 4567 (연중무휴)</p>

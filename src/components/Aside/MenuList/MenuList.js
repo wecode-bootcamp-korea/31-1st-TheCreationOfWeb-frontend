@@ -33,8 +33,8 @@ const MENU_LIST = [
     id: 1,
     title: 'ABOUT',
     list: [
-      { id: 1, name: 'DIRECT TRADE' },
-      { id: 2, name: 'TEAM MEMBER' },
+      { id: 5, name: 'DIRECT TRADE' },
+      { id: 6, name: 'TEAM MEMBER' },
     ],
   },
   {
@@ -52,8 +52,8 @@ const MENU_LIST = [
     id: 4,
     title: 'WHOLESALE',
     list: [
-      { id: 1, name: 'ABOUT FRUITZ' },
-      { id: 2, name: 'NOTICE / Q&A' },
+      { id: 7, name: 'ABOUT FRUITZ' },
+      { id: 8, name: 'NOTICE / Q&A' },
     ],
   },
   { id: 5, title: 'CONTACT' },

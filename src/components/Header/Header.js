@@ -1,23 +1,42 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useLoginState } from '../../LoginContext';
 import './Header.scss';
 
 const Header = () => {
   const navigate = useNavigate();
+  const loginState = useLoginState();
+  const { isLogin, setIsLogin } = loginState;
 
   const goToPage = (event, idx) => {
-    if (idx === 6) {
+    if (idx === 3) {
       alert('다국어는 지금 지원하지 않습니다.');
       return;
     }
-
-    navigate({
-      pathname:
-        idx === 0
-          ? `member/${event.target.innerText.replace(' ', '').toLowerCase()}`
-          : `${event.target.innerText.replace(' ', '').toLowerCase()}`,
-    });
+    if (isLogin && idx === 0) {
+      localStorage.removeItem('fruitz_user');
+      setIsLogin(false);
+      navigate('member/login');
+      return;
+    }
+    if (!isLogin && idx === 1) {
+      alert('회원이 아닙니다.');
+      navigate('member/login');
+    } else if (idx === 2) {
+      navigate(`${event.target.innerText.replace(' ', '').toLowerCase()}`);
+    } else {
+      navigate(
+        `member/${event.target.innerText.replace(' ', '').toLowerCase()}`
+      );
+    }
   };
+
+  const NAV_LIST = [
+    isLogin ? 'LOGOUT' : 'LOGIN',
+    'MY PAGE',
+    'CART',
+    'ENG VER(GLOBAL SHIPPING)',
+  ];
 
   return (
     <section className="header">
@@ -47,5 +66,3 @@ const Header = () => {
 };
 
 export default Header;
-
-const NAV_LIST = ['LOGIN', 'MY PAGE', 'CART', 'ENG VER(GLOBAL SHIPPING)'];
