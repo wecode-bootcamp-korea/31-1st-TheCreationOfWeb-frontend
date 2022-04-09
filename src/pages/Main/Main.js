@@ -22,18 +22,18 @@ export default Main;
 
 const IMAGE_DATA = [
   {
-    image: '/images/1.jpg',
+    image: '/images/main1.jpg',
   },
   {
-    image: 'images/2.jpg',
+    image: '/images/main2.jpg',
   },
   {
-    image: 'images/3.jpg',
+    image: '/images/main3.jpg',
   },
   {
-    image: 'images/4.jpg',
+    image: '/images/main4.jpg',
   },
   {
-    image: 'images/5.jpg',
+    image: '/images/main5.jpg',
   },
 ];

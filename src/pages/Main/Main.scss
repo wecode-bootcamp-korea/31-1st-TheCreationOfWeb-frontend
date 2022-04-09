@@ -7,17 +7,20 @@
     justify-content: space-around;
     align-items: center;
   }
+
   .mainListTwo{
     display: flex;
     justify-content: space-around;
     align-items: center;
   }
+
   .text{
     font-family: $font-title;
     // color: $color-title; 이야기 후 수정
     left: 50px;
     font-size: 30px;
   }
+  
   .button{
     font-family: $font-main;
     font-size: 12px;
